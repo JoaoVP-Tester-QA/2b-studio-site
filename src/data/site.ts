@@ -65,7 +65,6 @@ export const cases: Case[] = [
     domain: 'colinadoleao.com',
     summary:
       'Landing page para reservas de chalés rurais. O foco foi transmitir a atmosfera do lugar e facilitar o contato.',
-    // PENDENTE: confirmar se a identidade visual foi feita pelo 2B.
     deliverables: ['Landing page', 'Copy'],
     quote:
       'Precisava de uma página que passasse a sensação do lugar antes mesmo de o cliente chegar aqui. O resultado superou o que eu imaginava.',
