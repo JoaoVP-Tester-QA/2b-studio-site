@@ -25,13 +25,14 @@ const facts = [
         ))}
       </ul>
     </div>
-    <figure class="md:col-span-6">
+    <figure class="relative mx-auto w-full max-w-[36rem] md:col-span-6">
+      <div class="absolute inset-x-0 top-[26%] bottom-0 bg-ciano" aria-hidden="true"></div>
       <Image
         src={dupla}
         alt="João e Miguel, irmãos e sócios do 2B Studio, lado a lado e sorrindo."
         widths={[480, 720, 1080]}
-        sizes="(min-width: 768px) 50vw, 100vw"
-        class="mx-auto block w-full max-w-[36rem] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        sizes="(min-width: 768px) 36rem, 100vw"
+        class="relative block w-full"
       />
     </figure>
   </div>
