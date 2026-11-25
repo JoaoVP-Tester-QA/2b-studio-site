@@ -1,18 +1,38 @@
 ---
+import { Image } from 'astro:assets';
+import dupla from '../assets/dupla-recorte.png';
 import { site } from '../data/site';
+
+const facts = [
+  { strong: 'No ar em até 7 dias', text: 'do briefing à publicação.' },
+  { strong: 'Design e copy juntos', text: 'pensados ao mesmo tempo, não um depois do outro.' },
+  { strong: 'Atenção total', text: 'em cada projeto, com poucos clientes por mês.' },
+];
 ---
 
-<section id="sobre" aria-labelledby="sobre-title" class="on-dark bg-noite-2 py-20 md:py-32">
-  <div class="wrap grid gap-10 md:grid-cols-12 md:gap-8">
-    <div class="md:col-span-5">
-      <p class="label text-apoio-escuro">Sobre</p>
+<section id="sobre" aria-labelledby="sobre-title" class="on-dark bg-noite-2 pt-20 md:pt-32">
+  <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
+    <div class="pb-0 md:col-span-6 md:pb-32">
+      <p class="label text-apoio-escuro">Sobre nós</p>
       <h2 id="sobre-title" class="mt-4 text-h2">Um estúdio pequeno, de propósito.</h2>
-    </div>
-    <div class="md:col-span-6 md:col-start-7">
-      <p class="text-[1.1875rem] leading-relaxed">
-        O 2B é o João e o Miguel, de {site.city}. Um cuida do design, o outro da copy. Atendemos poucos projetos por mês para dar atenção real a cada
-        cliente, e trabalhamos design e texto juntos, porque uma página que traz clientes depende dos dois.
+      <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed">
+        O 2B é o João e o Miguel, de {site.city}. Um cuida do design, o outro da copy, e os dois assinam juntos
+        cada página que sai daqui.
       </p>
+      <ul class="mt-10 grid gap-4 border-t rule-light pt-8">
+        {facts.map((f) => (
+          <li class="text-apoio-escuro"><strong class="font-medium text-nevoa">{f.strong}</strong> {f.text}</li>
+        ))}
+      </ul>
     </div>
+    <figure class="md:col-span-6">
+      <Image
+        src={dupla}
+        alt="João e Miguel, sócios do 2B Studio, lado a lado e sorrindo."
+        widths={[480, 720, 1080]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        class="mx-auto block w-full max-w-[36rem] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      />
+    </figure>
   </div>
 </section>
