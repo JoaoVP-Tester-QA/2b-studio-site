@@ -165,7 +165,7 @@ export const packages: Package[] = [
 
 // PENDENTE: todas as respostas dependem do João. `answer: null` mostra o aviso de pendência.
 export const faq: { q: string; answer: string | null }[] = [
-  { q: 'Preciso já ter um domínio?', answer: null },
+  { q: 'Preciso já ter um domínio?', answer: 'Não. Se você ainda não tem, a gente cria o domínio junto com você.' },
   { q: 'Quem cuida da hospedagem e quanto custa?', answer: null },
   { q: 'Posso pedir alterações depois que a página estiver no ar?', answer: null },
   { q: 'Como funciona o pagamento?', answer: null },
