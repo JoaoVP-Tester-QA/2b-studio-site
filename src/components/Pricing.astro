@@ -35,7 +35,7 @@ import { packages, whatsappLink } from '../data/site';
           <p class="mt-10 flex items-baseline gap-2" aria-label={`${p.fromPrice ? 'a partir de ' : ''}${p.price} reais`}>
             {p.fromPrice && <span class:list={['text-small', 'text-apoio-escuro']}>a partir de</span>}
             <span class="text-[1.25rem] font-medium">R$</span>
-            <span class="font-display text-[4rem] leading-none tabular-nums">{p.price}</span>
+            <span class="font-display text-[4rem] leading-none font-medium tracking-[-0.04em] tabular-nums">{p.price}</span>
           </p>
 
           <ul class:list={['mt-8 grid gap-3 border-t pt-8', 'rule-light']}>

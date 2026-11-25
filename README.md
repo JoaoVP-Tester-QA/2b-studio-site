@@ -37,6 +37,8 @@ Na prévia, tudo que depende do João aparece com fundo listrado amarelo.
 ## Decisões
 
 - Astro estático sem React: o único ponto interativo é o menu (`<dialog>` nativo) e a barra fixa de WhatsApp.
+- Tipografia: Instrument Sans (títulos em 500 com tracking -0,03em, texto em 400), escolhida a partir das referências Stric e Ecto que o João enviou. Troca a Newsreader + Schibsted.
+- Logo provisório em `Logo.astro`: "2B" em contorno feito por filtro SVG. Trocar pelo arquivo original.
 - Fontes locais via Fontsource: sem chamada ao Google, melhor desempenho e privacidade.
 - Lucide não tem ícones de marca; o WhatsApp usa `message-circle` e as redes aparecem como texto.
 - Ciano nunca leva texto branco (2,9:1). Botões usam texto azul-noite sobre ciano (6,6:1); em fundo claro, o ciano escuro #00708F (5,0:1).
