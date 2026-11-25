@@ -1,5 +1,6 @@
 ---
 import HeroMockup from './HeroMockup.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
 ---
 
 <section id="topo" aria-labelledby="hero-title" class="on-dark relative overflow-hidden" data-hero>
@@ -15,9 +16,13 @@ import HeroMockup from './HeroMockup.astro';
         <span class="block text-ciano">Sua presença.</span>
         <span class="block">Seu próximo nível.</span>
       </h1>
+      <p class="mt-6 max-w-[30rem] text-[1.125rem] leading-relaxed text-apoio-escuro">
+        Landing pages para negócios locais, com design e texto feitos pela mesma dupla.
+      </p>
+      <WhatsAppButton label="Conversar no WhatsApp" class="mt-9 w-full sm:w-auto" />
     </div>
     <div class="relative -mx-5 bg-ciano px-6 pt-14 pb-12 [clip-path:ellipse(140%_100%_at_50%_100%)] md:col-span-5 md:col-start-8 md:mx-0 md:bg-transparent md:p-0 md:[clip-path:none]">
-      <p class="sr-only">Exemplo de página feita pelo 2B, no computador e no celular: design profissional, texto claro, feita para o celular e no ar em até 7 dias.</p>
+      <p class="sr-only">Páginas feitas pelo 2B, no computador e no celular: design profissional, texto claro, feita para o celular e no ar em até 7 dias.</p>
       <HeroMockup />
     </div>
   </div>
