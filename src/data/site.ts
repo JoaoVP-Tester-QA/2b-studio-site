@@ -18,9 +18,9 @@ export const site = {
   name: '2B Studio',
   city: 'Tremembé',
   state: 'SP',
-  title: '2B Studio · Landing pages para negócios do Vale do Paraíba',
+  title: '2B Studio · Design e texto para negócios locais em Tremembé, SP',
   description:
-    'Estúdio de landing pages em Tremembé, SP. Design e texto para negócios locais, no ar em até 7 dias e com o valor combinado antes de começar.',
+    'O 2B Studio é o João e o Miguel, de Tremembé, SP. Fazemos landing pages para negócios locais, com design e texto pensados juntos do briefing à publicação.',
   defaultMessage: 'Olá! Vim pelo site do 2B Studio e quero conversar sobre uma landing page.',
   // PENDENTE: links reais. Vazio = o item não aparece.
   instagram: '',

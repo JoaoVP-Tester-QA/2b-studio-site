@@ -1,24 +1,28 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
-import WhatsAppButton from './WhatsAppButton.astro';
 import CaseFrame from './CaseFrame.astro';
-import { cases } from '../data/site';
+import { cases, site, whatsappLink } from '../data/site';
 ---
 
 <section id="topo" aria-labelledby="hero-title" class="on-dark pt-10 pb-16 md:pt-20 md:pb-28" data-hero>
   <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
     <div class="md:col-span-7">
-      <p class="label text-apoio-escuro">Estúdio de landing pages · Tremembé, SP</p>
-      <h1 id="hero-title" class="mt-5 text-display">
-        Páginas que fazem o cliente <em class="text-ciano">chamar</em> no WhatsApp.
-      </h1>
+      <p class="label text-apoio-escuro">2B Studio · Tremembé, SP</p>
+      <h1 id="hero-title" class="mt-5 text-display">Design e texto para negócios locais.</h1>
       <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed text-apoio-escuro">
-        Design e texto para negócios do Vale do Paraíba e da Mantiqueira. No ar em até 7 dias, com o valor
-        combinado antes de começar.
+        Somos o João e o Miguel. Um cuida do design, o outro da copy, e os dois acompanham cada projeto do
+        briefing até a página no ar.
       </p>
       <div class="mt-9 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
-        <WhatsAppButton label="Contar meu projeto no WhatsApp" class="sm:w-auto" full />
-        <a href="#trabalhos" class="link-arrow self-start sm:self-auto">Ver trabalhos <ArrowRight size={18} aria-hidden="true" /></a>
+        <a href="#trabalhos" class="btn w-full sm:w-auto">Ver trabalhos</a>
+        <a
+          href={whatsappLink(site.defaultMessage)}
+          target="_blank"
+          rel="noopener"
+          data-cta="whatsapp"
+          class="link-arrow self-start sm:self-auto"
+          >Conversar no WhatsApp <ArrowRight size={18} aria-hidden="true" /><span class="sr-only"> (abre o WhatsApp)</span></a
+        >
       </div>
       <p class="mt-10 border-t rule-light pt-5 text-small text-apoio-escuro">
         Páginas no ar para{' '}
