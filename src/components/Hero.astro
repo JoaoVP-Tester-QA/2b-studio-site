@@ -1,7 +1,7 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import HeroDiagram from './HeroDiagram.astro';
-import { cases, site, whatsappLink } from '../data/site';
+import { site, whatsappLink } from '../data/site';
 ---
 
 <section id="topo" aria-labelledby="hero-title" class="on-dark relative overflow-hidden" data-hero>
@@ -12,7 +12,7 @@ import { cases, site, whatsappLink } from '../data/site';
   </div>
   <div class="wrap relative grid gap-12 pt-10 md:min-h-[44rem] md:grid-cols-12 md:items-center md:gap-8 md:pt-0">
     <div class="md:col-span-6 md:py-24">
-      <div role="img" aria-label="2B Studio" class="w-[13rem] sm:w-[16rem] lg:w-[16rem]">
+      <div role="img" aria-label="2B Studio" class="w-[15rem] sm:w-[19rem] lg:w-[24rem]">
         <svg viewBox="8 16 600 456" class="block w-full text-ciano" aria-hidden="true">
           <path
             d="M151 206 L21 206 L21 150 C21 80 80 24 150 24 C205 24 250 55 272 100 L16 388 L16 462 L258 462 M273 405 L273 462 L390 462 C480 462 545 405 545 335 C545 280 510 232 452 212 C495 195 523 158 523 115 C523 62 478 25 420 25 L272 25 L272 100"
@@ -23,16 +23,12 @@ import { cases, site, whatsappLink } from '../data/site';
           />
           <circle cx="590" cy="450" r="16" fill="currentColor" />
         </svg>
-        <p aria-hidden="true" class="-mt-3 pl-[14%] font-script text-[3.25rem] leading-none text-nevoa sm:text-[4rem] lg:text-[4rem]">
+        <p aria-hidden="true" class="-mt-3 pl-[14%] font-script text-[3.75rem] leading-none text-nevoa sm:text-[4.75rem] lg:text-[6rem]">
           studio
         </p>
       </div>
-      <h1 id="hero-title" class="mt-8 max-w-[30rem] text-h2">Design e texto para negócios locais.</h1>
-      <p class="mt-5 max-w-[32rem] text-[1.125rem] leading-relaxed text-apoio-escuro">
-        Somos o João e o Miguel, de Tremembé. Um cuida do design, o outro da copy, e os dois acompanham cada
-        projeto do briefing até a página no ar.
-      </p>
-      <div class="mt-9 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8 md:flex-col md:items-start lg:flex-row lg:items-center">
+      <h1 id="hero-title" class="sr-only">2B Studio: design e texto para negócios locais</h1>
+      <div class="mt-14 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8 md:flex-col md:items-start lg:flex-row lg:items-center">
         <a href="#trabalhos" class="btn w-full whitespace-nowrap sm:w-auto">Ver trabalhos</a>
         <a
           href={whatsappLink(site.defaultMessage)}
@@ -43,18 +39,9 @@ import { cases, site, whatsappLink } from '../data/site';
           >Conversar no WhatsApp <ArrowRight size={18} aria-hidden="true" /><span class="sr-only"> (abre o WhatsApp)</span></a
         >
       </div>
-      <p class="mt-10 border-t rule-light pt-5 text-small text-apoio-escuro">
-        Páginas no ar para{' '}
-        {cases.map((c, i) => (
-          <>
-            <a href={`#${c.id}`} class="font-medium text-nevoa underline underline-offset-4">{c.name}</a>
-            {i < cases.length - 1 ? ' e ' : '.'}
-          </>
-        ))}
-      </p>
     </div>
     <div class="relative -mx-5 bg-ciano px-6 pt-14 pb-12 [clip-path:ellipse(140%_100%_at_50%_100%)] md:col-span-5 md:col-start-8 md:mx-0 md:bg-transparent md:p-0 md:[clip-path:none]">
-      <p class="sr-only">O que o 2B cuida na sua página: design, copy, WhatsApp, Instagram e publicação em até 7 dias.</p>
+      <p class="sr-only">Benefícios de uma página feita pelo 2B: design profissional, texto claro, feita para o celular, no ar em até 7 dias e atendimento direto com a dupla.</p>
       <HeroDiagram />
     </div>
   </div>

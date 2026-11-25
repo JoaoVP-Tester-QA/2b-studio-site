@@ -1,14 +1,14 @@
 ---
 /**
- * Diagrama do hero: a página no centro e o que o 2B cuida ao redor.
+ * Diagrama do hero: a página no centro e os benefícios ao redor.
  * Só usa fatos que já estão no site. Inspirado na referência Ecto enviada pelo João.
  */
 const nodes = [
-  { label: 'Design', x: 72, y: 11.5 },
-  { label: 'Copy', x: 23.7, y: 40.4 },
-  { label: 'WhatsApp', x: 92, y: 58 },
-  { label: 'Instagram', x: 18.5, y: 81.5 },
-  { label: 'No ar em até 7 dias', x: 64, y: 74.2 },
+  { label: 'Design\nprofissional', x: 50, y: 7 },
+  { label: 'Feita para\no celular', x: 89, y: 37 },
+  { label: 'No ar em\naté 7 dias', x: 74, y: 84 },
+  { label: 'Atendimento\ndireto', x: 26, y: 84 },
+  { label: 'Texto claro', x: 11, y: 37 },
 ];
 ---
 
@@ -25,7 +25,7 @@ const nodes = [
   </div>
   {nodes.map((n) => (
     <span
-      class="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-xs border border-noite/80 bg-claro px-3 py-1.5 text-[0.8125rem] font-medium text-noite"
+      class="absolute -translate-x-1/2 -translate-y-1/2 w-max whitespace-pre-line text-center leading-tight rounded-xs border border-noite/80 bg-claro px-3 py-1.5 text-[0.8125rem] font-medium text-noite"
       style={`left:${n.x}%;top:${n.y}%`}
     >{n.label}</span>
   ))}
