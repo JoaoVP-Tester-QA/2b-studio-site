@@ -1,0 +1,26 @@
+---
+import Plus from '@lucide/astro/icons/plus';
+import { faq } from '../data/site';
+---
+
+<section id="perguntas" aria-labelledby="faq-title" class="border-t rule py-20 md:py-32">
+  <div class="wrap grid gap-10 md:grid-cols-12 md:gap-8">
+    <div class="md:col-span-4">
+      <p class="label text-apoio">Perguntas</p>
+      <h2 id="faq-title" class="mt-4 text-h2">Antes de chamar.</h2>
+    </div>
+    <div class="md:col-span-7 md:col-start-6">
+      {faq.map((f) => (
+        <details class="group border-t rule last:border-b">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.125rem] font-medium [&::-webkit-details-marker]:hidden">
+            {f.q}
+            <Plus size={22} class="shrink-0 transition-transform group-open:rotate-45" aria-hidden="true" />
+          </summary>
+          <div class="pb-6 text-apoio">
+            {f.answer ? <p>{f.answer}</p> : <p><span class="pending">Resposta pendente: depende do João</span></p>}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

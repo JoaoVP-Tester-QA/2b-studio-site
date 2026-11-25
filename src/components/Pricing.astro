@@ -1,0 +1,66 @@
+---
+import Check from '@lucide/astro/icons/check';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { packages, whatsappLink } from '../data/site';
+---
+
+<section id="pacotes" aria-labelledby="pacotes-title" class="border-t rule bg-papel-2 py-20 md:py-32">
+  <div class="wrap">
+    <div class="grid gap-6 md:grid-cols-12 md:items-end">
+      <div class="md:col-span-7">
+        <p class="label text-apoio">Pacotes</p>
+        <h2 id="pacotes-title" class="mt-4 text-h2">Simples de entender. Sem letra miúda.</h2>
+      </div>
+      <p class="text-apoio md:col-span-4 md:col-start-9">Você sabe exatamente o que recebe e quanto paga antes de começar.</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-0">
+      {packages.map((p) => (
+        <article
+          aria-labelledby={`pkg-${p.id}`}
+          class:list={[
+            'reveal flex flex-col p-7 md:p-10',
+            p.recommended ? 'bg-tinta text-papel on-dark' : 'border rule bg-papel md:border-l-0',
+          ]}
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 id={`pkg-${p.id}`} class="text-h3">{p.name}</h3>
+              <p class:list={['mt-1 text-small', p.recommended ? 'text-papel/75' : 'text-apoio']}>{p.tagline}</p>
+            </div>
+            {p.recommended && <p class="label border border-argila-clara px-2 py-1 text-[0.75rem] text-argila-clara">Recomendado</p>}
+          </div>
+
+          <p class="mt-10 flex items-baseline gap-2" aria-label={`${p.fromPrice ? 'a partir de ' : ''}${p.price} reais`}>
+            {p.fromPrice && <span class:list={['text-small', p.recommended ? 'text-papel/75' : 'text-apoio']}>a partir de</span>}
+            <span class="text-[1.25rem] font-medium">R$</span>
+            <span class="font-display text-[4rem] leading-none tabular-nums">{p.price}</span>
+          </p>
+
+          <ul class:list={['mt-8 grid gap-3 border-t pt-8', p.recommended ? 'rule-light' : 'rule']}>
+            {p.items.map((it) => (
+              <li class="flex gap-3">
+                <Check size={20} class:list={['mt-0.5 shrink-0', p.recommended ? 'text-argila-clara' : 'text-argila']} aria-hidden="true" />
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+
+          {p.note && <p class="mt-8 text-small text-papel/80">{p.note}</p>}
+
+          <div class="mt-auto pt-10">
+            <WhatsAppButton label={p.cta} message={p.message} variant={p.recommended ? 'solid' : 'ghost'} full />
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-8 text-apoio">
+      Precisa de algo diferente?{' '}
+      <a href={whatsappLink('Olá! Vim pelo site do 2B Studio e tenho um projeto personalizado.')} target="_blank" rel="noopener" class="font-semibold text-tinta underline underline-offset-4">
+        Conte no WhatsApp e montamos uma proposta<ArrowRight size={16} class="ml-1 inline align-[-2px]" aria-hidden="true" />
+      </a>
+    </p>
+  </div>
+</section>

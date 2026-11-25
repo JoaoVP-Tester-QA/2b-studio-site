@@ -1,0 +1,31 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-20 translate-y-full border-t rule bg-papel p-3 transition-transform duration-300 data-[show=true]:translate-y-0 md:hidden"
+  data-sticky-cta
+  data-show="false"
+  aria-hidden="true"
+>
+  <WhatsAppButton label="Falar no WhatsApp" full />
+</div>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-sticky-cta]');
+  const hero = document.querySelector('[data-hero]');
+  const final = document.querySelector('[data-final-cta]');
+  if (bar && hero && 'IntersectionObserver' in window) {
+    let heroVisible = true;
+    let finalVisible = false;
+    const update = () => {
+      const show = !heroVisible && !finalVisible;
+      bar.dataset.show = String(show);
+      bar.setAttribute('aria-hidden', String(!show));
+      bar.querySelector('a')?.setAttribute('tabindex', show ? '0' : '-1');
+    };
+    new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }).observe(hero);
+    if (final) new IntersectionObserver(([e]) => { finalVisible = e.isIntersecting; update(); }).observe(final);
+    update();
+  }
+</script>

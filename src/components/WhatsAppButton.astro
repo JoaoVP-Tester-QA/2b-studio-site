@@ -1,0 +1,25 @@
+---
+import MessageCircle from '@lucide/astro/icons/message-circle';
+import { whatsappLink, site } from '../data/site';
+
+interface Props {
+  label: string;
+  message?: string;
+  variant?: 'solid' | 'ghost';
+  class?: string;
+  full?: boolean;
+}
+const { label, message = site.defaultMessage, variant = 'solid', class: cls = '', full = false } = Astro.props;
+---
+
+<a
+  href={whatsappLink(message)}
+  class:list={['btn', variant === 'ghost' && 'btn-ghost', full && 'w-full', cls]}
+  target="_blank"
+  rel="noopener"
+  data-cta="whatsapp"
+>
+  <MessageCircle size={20} aria-hidden="true" />
+  <span>{label}</span>
+  <span class="sr-only"> (abre o WhatsApp)</span>
+</a>

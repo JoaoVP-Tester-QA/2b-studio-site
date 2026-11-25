@@ -1,0 +1,28 @@
+---
+/**
+ * Moldura de navegador para a captura do case.
+ * PENDENTE: substituir o conteúdo provisório pela captura real do site
+ * (desktop e celular) assim que o João enviar ou liberar o acesso.
+ */
+import type { Case } from '../data/site';
+interface Props { item: Case; class?: string; eager?: boolean }
+const { item, class: cls = '' } = Astro.props;
+const dark = item.tone === 'musgo' ? 'bg-musgo' : 'bg-tinta';
+---
+
+<figure class:list={['overflow-hidden rounded-xs border rule bg-papel-2', cls]}>
+  <div class="flex items-center gap-3 border-b rule px-3 py-2">
+    <span class="flex gap-1.5" aria-hidden="true">
+      <span class="size-2 rounded-full bg-tinta/20"></span>
+      <span class="size-2 rounded-full bg-tinta/20"></span>
+      <span class="size-2 rounded-full bg-tinta/20"></span>
+    </span>
+    <span class="truncate text-[0.8125rem] text-apoio">{item.domain}</span>
+  </div>
+  <div class:list={['relative flex aspect-[16/10] flex-col justify-end p-6 text-linho md:p-8', dark]}>
+    <p class="label text-argila-clara">{item.segment}</p>
+    <p class="mt-2 font-display text-[clamp(2rem,4vw,3.25rem)] leading-none">{item.name}</p>
+    <span class="pending absolute top-4 right-4 text-[0.75rem]">Captura real do site pendente</span>
+  </div>
+  <figcaption class="sr-only">Prévia do site {item.domain}</figcaption>
+</figure>

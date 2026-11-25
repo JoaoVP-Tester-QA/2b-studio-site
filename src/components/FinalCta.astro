@@ -1,0 +1,19 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section id="contato" aria-labelledby="contato-title" class="bg-musgo py-20 text-linho on-dark md:py-32" data-final-cta>
+  <div class="wrap grid gap-10 md:grid-cols-12 md:items-end md:gap-8">
+    <div class="md:col-span-8">
+      <h2 id="contato-title" class="text-display">Vamos colocar o seu negócio no ar?</h2>
+      <p class="mt-6 max-w-[36rem] text-[1.1875rem] leading-relaxed text-linho/85">
+        Manda uma mensagem contando o que você faz. A gente responde no mesmo dia e marca um papo rápido para
+        entender o projeto.
+      </p>
+    </div>
+    <div class="md:col-span-4">
+      <WhatsAppButton label="Falar no WhatsApp" full />
+      <p class="mt-4 text-small text-linho/75">Atendemos poucos projetos por mês.</p>
+    </div>
+  </div>
+</section>

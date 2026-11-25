@@ -1,0 +1,86 @@
+---
+import Menu from '@lucide/astro/icons/menu';
+import X from '@lucide/astro/icons/x';
+import Logo from './Logo.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { nav } from '../data/site';
+---
+
+<header class="sticky top-0 z-30 border-b rule bg-papel">
+  <div class="wrap flex h-16 items-center justify-between gap-6 md:h-20">
+    <a href="#topo" aria-label="2B Studio, início"><Logo /></a>
+
+    <nav aria-label="Principal" class="hidden md:block">
+      <ul class="flex items-center gap-8 text-[0.9375rem] font-medium">
+        {nav.map((item) => (
+          <li><a href={item.href} class="hover:underline hover:underline-offset-4">{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="hidden md:block">
+      <WhatsAppButton label="WhatsApp" class="min-h-11 px-4 text-[0.9375rem]" />
+    </div>
+
+    <button
+      type="button"
+      class="-mr-2 inline-flex size-11 items-center justify-center md:hidden"
+      aria-controls="menu"
+      aria-expanded="false"
+      data-menu-open
+    >
+      <Menu size={24} aria-hidden="true" />
+      <span class="sr-only">Abrir menu</span>
+    </button>
+  </div>
+</header>
+
+<dialog
+  id="menu"
+  aria-label="Menu"
+  class="m-0 h-dvh max-h-none w-full max-w-none bg-musgo p-0 text-linho on-dark backdrop:bg-transparent md:hidden"
+>
+  <div class="wrap flex h-full flex-col">
+    <div class="flex h-16 items-center justify-between">
+      <Logo dark />
+      <button type="button" class="-mr-2 inline-flex size-11 items-center justify-center" data-menu-close>
+        <X size={24} aria-hidden="true" />
+        <span class="sr-only">Fechar menu</span>
+      </button>
+    </div>
+    <nav aria-label="Menu" class="mt-6 flex-1">
+      <ul>
+        {nav.map((item) => (
+          <li class="border-b rule-light">
+            <a href={item.href} class="block py-5 font-display text-[2rem] leading-tight" data-menu-link>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="pb-8">
+      <WhatsAppButton label="Falar no WhatsApp" full />
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('menu') as HTMLDialogElement | null;
+  const openBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+  if (dialog && openBtn && closeBtn) {
+    openBtn.addEventListener('click', () => {
+      dialog.showModal();
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    const onClose = () => {
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    dialog.addEventListener('close', onClose);
+    closeBtn.addEventListener('click', () => dialog.close());
+    dialog.querySelectorAll('[data-menu-link]').forEach((a) =>
+      a.addEventListener('click', () => dialog.close()),
+    );
+  }
+</script>

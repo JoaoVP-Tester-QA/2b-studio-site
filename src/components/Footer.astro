@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import { nav, site } from '../data/site';
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'Instagram', href: site.instagram },
+  { label: 'LinkedIn', href: site.linkedin },
+].filter((s) => s.href);
+---
+
+<footer class="bg-tinta py-14 text-linho on-dark">
+  <div class="wrap grid gap-10 md:grid-cols-12">
+    <div class="md:col-span-5">
+      <Logo dark />
+      <p class="mt-4 max-w-xs text-small text-linho/75">Landing pages para negócios locais. {site.city}, {site.state}.</p>
+    </div>
+    <nav aria-label="Rodapé" class="md:col-span-3">
+      <ul class="grid gap-2 text-small">
+        {nav.map((n) => <li><a href={n.href} class="hover:underline">{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="text-small md:col-span-4">
+      {socials.length > 0 ? (
+        <ul class="grid gap-2">
+          {socials.map((s) => <li><a href={s.href} target="_blank" rel="noopener" class="hover:underline">{s.label}</a></li>)}
+        </ul>
+      ) : (
+        <p><span class="pending">Links de Instagram e LinkedIn pendentes</span></p>
+      )}
+    </div>
+  </div>
+  <div class="wrap mt-12">
+    <p class="border-t rule-light pt-6 text-small text-linho/75">© {year} {site.name}</p>
+  </div>
+</footer>
