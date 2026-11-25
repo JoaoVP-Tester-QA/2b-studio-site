@@ -97,7 +97,7 @@ export const steps = [
   },
   {
     title: 'No ar',
-    text: 'Publicamos a página e entregamos tudo funcionando, com o WhatsApp a um toque.',
+    text: 'Publicamos a página, pronta para virar o link da bio do seu Instagram, com o WhatsApp a um toque.',
   },
 ];
 
@@ -114,7 +114,8 @@ export type Package = {
   message: string;
 };
 
-// Valores da apresentação do 2B no Canva (confirmados pelo João em 25/11/2026).
+// Completo R$ 1.420 (apresentação no Canva). Essencial subiu para R$ 970 e o "a partir de" saiu,
+// aprovados pelo João em 25/11/2026: diferença menor empurra para o Completo.
 // Valores e itens definidos pelo João. A ordem (Completo primeiro) é ancoragem de preço.
 export const packages: Package[] = [
   {
@@ -122,7 +123,7 @@ export const packages: Package[] = [
     name: 'Completo',
     tagline: 'Design e texto feitos juntos',
     price: '1.420',
-    fromPrice: true,
+    fromPrice: false,
     recommended: true,
     items: [
       'Tudo do Essencial',
@@ -130,7 +131,7 @@ export const packages: Package[] = [
       'Até 8 seções',
       '1 rodada de ajuste inclusa',
     ],
-    note: 'Por mais R$ 550, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
+    note: 'Por R$ 450 a mais, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
     cta: 'Quero o Completo',
     message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Completo.',
   },
@@ -138,8 +139,8 @@ export const packages: Package[] = [
     id: 'essencial',
     name: 'Essencial',
     tagline: 'Para quem já tem o texto pronto',
-    price: '870',
-    fromPrice: true,
+    price: '970',
+    fromPrice: false,
     recommended: false,
     items: [
       'Design da landing page',

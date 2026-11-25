@@ -23,7 +23,8 @@ Todo texto comercial está em `src/data/site.ts`. Cores, fontes e escala estão 
 Na prévia, tudo que depende do João aparece com fundo listrado amarelo.
 
 - [x] WhatsApp (12) 99248-7949, tirado da apresentação no Canva.
-- [x] Preços da apresentação: R$ 870 e R$ 1.420.
+- [x] Preços: Essencial R$ 970 e Completo R$ 1.420, sem "a partir de" (aprovado em 25/11/2026).
+- [ ] Parcelamento: aceitam cartão? Em quantas vezes e com ou sem juros?
 - [ ] Domínio (`SITE_URL`) e hospedagem.
 - [ ] Capturas reais dos sites Colina do Leão e Rômulo Heidt (substituir `CaseFrame.astro`).
 - [ ] Autorização da Deborah e do Rômulo para nome e depoimento.
