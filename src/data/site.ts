@@ -114,13 +114,14 @@ export type Package = {
   message: string;
 };
 
+// Valores da apresentação do 2B no Canva (confirmados pelo João em 25/11/2026).
 // Valores e itens definidos pelo João. A ordem (Completo primeiro) é ancoragem de preço.
 export const packages: Package[] = [
   {
     id: 'completo',
     name: 'Completo',
     tagline: 'Design e texto feitos juntos',
-    price: '1.400',
+    price: '1.420',
     fromPrice: true,
     recommended: true,
     items: [
@@ -129,7 +130,7 @@ export const packages: Package[] = [
       'Até 8 seções',
       '1 rodada de ajuste inclusa',
     ],
-    note: 'Por mais R$ 600, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
+    note: 'Por mais R$ 550, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
     cta: 'Quero o Completo',
     message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Completo.',
   },
@@ -137,7 +138,7 @@ export const packages: Package[] = [
     id: 'essencial',
     name: 'Essencial',
     tagline: 'Para quem já tem o texto pronto',
-    price: '800',
+    price: '870',
     fromPrice: true,
     recommended: false,
     items: [
