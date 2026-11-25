@@ -4,10 +4,10 @@ import CaseFrame from './CaseFrame.astro';
 import { cases } from '../data/site';
 ---
 
-<section id="trabalhos" aria-labelledby="trabalhos-title" class="bg-musgo py-20 text-linho on-dark md:py-32">
+<section id="trabalhos" aria-labelledby="trabalhos-title" class="bg-noite-2 py-20 text-nevoa on-dark md:py-32">
   <div class="wrap">
     <div class="max-w-3xl">
-      <p class="label text-argila-clara">Trabalhos</p>
+      <p class="label text-ciano">Trabalhos</p>
       <h2 id="trabalhos-title" class="mt-4 text-h2">Feitos para negócios de verdade, com clientes de verdade.</h2>
     </div>
 
@@ -15,20 +15,20 @@ import { cases } from '../data/site';
       {cases.map((c, i) => (
         <li id={c.id} class="reveal grid gap-8 md:grid-cols-12 md:gap-10">
           <div class:list={['md:col-span-7', i % 2 === 1 && 'md:order-2']}>
-            <CaseFrame item={c} class="border-linho/15" />
+            <CaseFrame item={c} class="border-nevoa/15" />
           </div>
           <div class:list={['flex flex-col md:col-span-5', i % 2 === 1 && 'md:order-1']}>
-            <p class="label text-linho/70">{String(i + 1).padStart(2, '0')} · {c.segment}</p>
+            <p class="label text-apoio-escuro">{String(i + 1).padStart(2, '0')} · {c.segment}</p>
             <h3 class="mt-3 font-display text-[2.25rem] leading-tight">{c.name}</h3>
-            <p class="mt-4 text-linho/85">{c.summary}</p>
-            <p class="mt-4 text-small text-linho/70">
+            <p class="mt-4 text-nevoa/90">{c.summary}</p>
+            <p class="mt-4 text-small text-apoio-escuro">
               <span class="sr-only">Entregas: </span>{c.deliverables.join(' · ')}
             </p>
-            <blockquote class="mt-8 border-l-2 border-argila-clara pl-5">
+            <blockquote class="mt-8 border-l-2 border-ciano pl-5">
               <p class="font-display text-[1.375rem] leading-snug italic">“{c.quote}”</p>
-              <footer class="mt-3 text-small text-linho/70">{c.author}, {c.authorRole}</footer>
+              <footer class="mt-3 text-small text-apoio-escuro">{c.author}, {c.authorRole}</footer>
             </blockquote>
-            <a href={c.url} target="_blank" rel="noopener" class="link-arrow mt-8 self-start text-argila-clara">
+            <a href={c.url} target="_blank" rel="noopener" class="link-arrow mt-8 self-start text-ciano">
               Ver o site <ArrowUpRight size={18} aria-hidden="true" /><span class="sr-only"> {c.domain} (abre em nova aba)</span>
             </a>
           </div>

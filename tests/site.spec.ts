@@ -22,6 +22,7 @@ test('todo CTA de WhatsApp é um link wa.me real com mensagem', async ({ page })
   for (const href of await links.evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).href))) {
     const url = new URL(href);
     expect(url.hostname).toBe('wa.me');
+    expect(url.pathname).toBe('/5512992487949');
     expect(url.searchParams.get('text')).toMatch(/Olá!/);
   }
   await expect(page.getByRole('link', { name: /Quero o Completo/ })).toHaveAttribute('href', /pacote%20Completo/);

@@ -5,7 +5,7 @@ import { whatsappLink, site } from '../data/site';
 interface Props {
   label: string;
   message?: string;
-  variant?: 'solid' | 'ghost';
+  variant?: 'solid' | 'ghost' | 'dark';
   class?: string;
   full?: boolean;
 }
@@ -14,7 +14,7 @@ const { label, message = site.defaultMessage, variant = 'solid', class: cls = ''
 
 <a
   href={whatsappLink(message)}
-  class:list={['btn', variant === 'ghost' && 'btn-ghost', full && 'w-full', cls]}
+  class:list={['btn', variant === 'ghost' && 'btn-ghost', variant === 'dark' && 'btn-dark', full && 'w-full', cls]}
   target="_blank"
   rel="noopener"
   data-cta="whatsapp"

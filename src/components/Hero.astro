@@ -5,14 +5,14 @@ import CaseFrame from './CaseFrame.astro';
 import { cases } from '../data/site';
 ---
 
-<section id="topo" aria-labelledby="hero-title" class="pt-10 pb-16 md:pt-20 md:pb-28" data-hero>
+<section id="topo" aria-labelledby="hero-title" class="on-dark pt-10 pb-16 md:pt-20 md:pb-28" data-hero>
   <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
     <div class="md:col-span-7">
-      <p class="label text-apoio">Estúdio de landing pages · Tremembé, SP</p>
+      <p class="label text-apoio-escuro">Estúdio de landing pages · Tremembé, SP</p>
       <h1 id="hero-title" class="mt-5 text-display">
-        Páginas que fazem o cliente <em class="text-argila">chamar</em> no WhatsApp.
+        Páginas que fazem o cliente <em class="text-ciano">chamar</em> no WhatsApp.
       </h1>
-      <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed text-apoio">
+      <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed text-apoio-escuro">
         Design e texto para negócios do Vale do Paraíba e da Mantiqueira. No ar em até 7 dias, com o valor
         combinado antes de começar.
       </p>
@@ -20,11 +20,11 @@ import { cases } from '../data/site';
         <WhatsAppButton label="Contar meu projeto no WhatsApp" class="sm:w-auto" full />
         <a href="#trabalhos" class="link-arrow self-start sm:self-auto">Ver trabalhos <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
-      <p class="mt-10 border-t rule pt-5 text-small text-apoio">
+      <p class="mt-10 border-t rule-light pt-5 text-small text-apoio-escuro">
         Páginas no ar para{' '}
         {cases.map((c, i) => (
           <>
-            <a href={`#${c.id}`} class="font-medium text-tinta underline underline-offset-4">{c.name}</a>
+            <a href={`#${c.id}`} class="font-medium text-nevoa underline underline-offset-4">{c.name}</a>
             {i < cases.length - 1 ? ' e ' : '.'}
           </>
         ))}

@@ -4,9 +4,8 @@
  * de confirmação do João e aparecem destacados na prévia.
  */
 
-// PENDENTE: número de WhatsApp no formato internacional, só dígitos (ex.: 5512999999999).
-// Vazio = o link abre o WhatsApp para o visitante escolher o contato.
-export const WHATSAPP_NUMBER = '';
+// Número no formato internacional, só dígitos. Vazio = o visitante escolhe o contato.
+export const WHATSAPP_NUMBER = '5512992487949'; // (12) 99248-7949, da apresentação do 2B no Canva
 
 export function whatsappLink(message: string): string {
   const text = encodeURIComponent(message);
@@ -46,7 +45,8 @@ export type Case = {
   quote: string;
   author: string;
   authorRole: string;
-  tone: 'musgo' | 'tinta';
+  /** Cores do site do cliente, usadas só na moldura provisória do case. */
+  tone: { bg: string; text: string; accent: string };
 };
 
 export const cases: Case[] = [
@@ -64,7 +64,7 @@ export const cases: Case[] = [
       'Precisava de uma página que passasse a sensação do lugar antes mesmo de o cliente chegar aqui. O resultado superou o que eu imaginava.',
     author: 'Deborah',
     authorRole: 'Colina do Leão',
-    tone: 'musgo',
+    tone: { bg: '#24382d', text: '#f3efe6', accent: '#e39a72' },
   },
   {
     id: 'romulo-heidt',
@@ -78,7 +78,7 @@ export const cases: Case[] = [
     quote: 'O João e o Miguel entenderam meu negócio rápido e entregaram no prazo, coisa rara.',
     author: 'Rômulo Heidt',
     authorRole: 'Personal trainer',
-    tone: 'tinta',
+    tone: { bg: '#141414', text: '#f2f2f2', accent: '#ff7a45' },
   },
 ];
 

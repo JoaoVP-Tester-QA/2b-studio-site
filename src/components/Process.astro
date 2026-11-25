@@ -2,7 +2,7 @@
 import { steps } from '../data/site';
 ---
 
-<section id="como-funciona" aria-labelledby="processo-title" class="py-20 md:py-32">
+<section id="como-funciona" aria-labelledby="processo-title" class="bg-claro py-20 text-noite md:py-32">
   <div class="wrap grid gap-12 md:grid-cols-12 md:gap-8">
     <div class="md:col-span-4">
       <p class="label text-apoio">Como funciona</p>
@@ -12,7 +12,7 @@ import { steps } from '../data/site';
     <ol class="md:col-span-7 md:col-start-6">
       {steps.map((s, i) => (
         <li class="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t rule py-7 md:grid-cols-[5rem_1fr] md:py-9">
-          <span class="font-display text-[2.5rem] leading-none text-argila md:text-[3rem]" aria-hidden="true">{i + 1}</span>
+          <span class="font-display text-[2.5rem] leading-none text-ciano-escuro md:text-[3rem]" aria-hidden="true">{i + 1}</span>
           <div>
             <h3 class="text-h3"><span class="sr-only">Passo {i + 1}: </span>{s.title}</h3>
             <p class="mt-2 text-apoio">{s.text}</p>
