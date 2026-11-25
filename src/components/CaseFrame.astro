@@ -1,16 +1,13 @@
 ---
-/**
- * Moldura de navegador para a captura do case.
- * PENDENTE: substituir o conteúdo provisório pela captura real do site
- * (desktop e celular) assim que o João enviar ou liberar o acesso.
- */
+/** Moldura mínima de navegador com a captura real do site do cliente. */
+import { Image } from 'astro:assets';
 import type { Case } from '../data/site';
-interface Props { item: Case; class?: string; eager?: boolean }
+interface Props { item: Case; class?: string }
 const { item, class: cls = '' } = Astro.props;
 ---
 
 <figure class:list={['overflow-hidden rounded-xs border rule-light bg-noite-2', cls]}>
-  <div class="flex items-center gap-3 border-b rule px-3 py-2">
+  <div class="flex items-center gap-3 border-b rule-light px-3 py-2">
     <span class="flex gap-1.5" aria-hidden="true">
       <span class="size-2 rounded-full bg-nevoa/25"></span>
       <span class="size-2 rounded-full bg-nevoa/25"></span>
@@ -18,10 +15,12 @@ const { item, class: cls = '' } = Astro.props;
     </span>
     <span class="truncate text-[0.8125rem] text-apoio-escuro">{item.domain}</span>
   </div>
-  <div class="relative flex aspect-[16/10] flex-col justify-end p-6 md:p-8" style={`background:${item.tone.bg};color:${item.tone.text}`}>
-    <p class="label" style={`color:${item.tone.accent}`}>{item.segment}</p>
-    <p class="mt-2 font-display text-[clamp(2rem,4vw,3.25rem)] leading-none">{item.name}</p>
-    <span class="pending absolute top-4 right-4 text-[0.75rem]">Captura real do site pendente</span>
-  </div>
-  <figcaption class="sr-only">Prévia do site {item.domain}</figcaption>
+  <Image
+    src={item.image}
+    alt={item.imageAlt}
+    widths={[480, 720, 1000]}
+    sizes="(min-width: 768px) 640px, 100vw"
+    loading="lazy"
+    class:list={['block w-full object-cover object-top', item.aspect]}
+  />
 </figure>

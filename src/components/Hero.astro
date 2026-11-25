@@ -1,6 +1,7 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
-import CaseFrame from './CaseFrame.astro';
+import { Image } from 'astro:assets';
+import dupla from '../assets/dupla.jpg';
 import { cases, site, whatsappLink } from '../data/site';
 ---
 
@@ -34,8 +35,16 @@ import { cases, site, whatsappLink } from '../data/site';
         ))}
       </p>
     </div>
-    <div class="hidden md:col-span-5 md:block">
-      <CaseFrame item={cases[0]} />
-    </div>
+    <figure class="md:col-span-5">
+      <Image
+        src={dupla}
+        alt="João e Miguel, sócios do 2B Studio, lado a lado e sorrindo."
+        widths={[400, 640, 1000]}
+        sizes="(min-width: 768px) 40vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="aspect-square w-full rounded-xs object-cover"
+      />
+    </figure>
   </div>
 </section>

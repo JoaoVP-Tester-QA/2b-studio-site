@@ -1,3 +1,7 @@
+import type { ImageMetadata } from 'astro';
+import colinaImg from '../assets/colina.jpg';
+import romuloImg from '../assets/romulo.jpg';
+
 /**
  * Todo o conteúdo comercial do site fica aqui.
  * Itens marcados com `pending: true` (ou PENDENTE nos comentários) dependem
@@ -45,8 +49,11 @@ export type Case = {
   quote: string;
   author: string;
   authorRole: string;
-  /** Cores do site do cliente, usadas só na moldura provisória do case. */
-  tone: { bg: string; text: string; accent: string };
+  /** Captura do site (recortada da apresentação no Canva; trocar por captura em alta quando houver). */
+  image: ImageMetadata;
+  imageAlt: string;
+  /** Recorte da captura na moldura (classe Tailwind de proporção). */
+  aspect?: string;
 };
 
 export const cases: Case[] = [
@@ -64,7 +71,9 @@ export const cases: Case[] = [
       'Precisava de uma página que passasse a sensação do lugar antes mesmo de o cliente chegar aqui. O resultado superou o que eu imaginava.',
     author: 'Deborah',
     authorRole: 'Colina do Leão',
-    tone: { bg: '#24382d', text: '#f3efe6', accent: '#e39a72' },
+    image: colinaImg,
+    aspect: 'aspect-[4/3]',
+    imageAlt: 'Página da Colina do Leão: topo com o título “Seu refúgio na Serra da Mantiqueira” e a seção com os três chalés.',
   },
   {
     id: 'romulo-heidt',
@@ -78,7 +87,8 @@ export const cases: Case[] = [
     quote: 'O João e o Miguel entenderam meu negócio rápido e entregaram no prazo, coisa rara.',
     author: 'Rômulo Heidt',
     authorRole: 'Personal trainer',
-    tone: { bg: '#141414', text: '#f2f2f2', accent: '#ff7a45' },
+    image: romuloImg,
+    imageAlt: 'Página do Rômulo Heidt: topo escuro com o título “Transforme com precisão” e os botões de contato.',
   },
 ];
 

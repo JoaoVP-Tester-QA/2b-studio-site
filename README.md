@@ -26,10 +26,10 @@ Na prévia, tudo que depende do João aparece com fundo listrado amarelo.
 - [x] Preços: Essencial R$ 970 e Completo R$ 1.420, sem "a partir de" (aprovado em 25/11/2026).
 - [ ] Parcelamento: aceitam cartão? Em quantas vezes e com ou sem juros?
 - [ ] Domínio (`SITE_URL`) e hospedagem.
-- [ ] Capturas reais dos sites Colina do Leão e Rômulo Heidt (substituir `CaseFrame.astro`).
+- [x] Capturas da Colina e do Rômulo e foto da dupla, recortadas dos prints do Canva (`src/assets`). Trocar por arquivos em alta quando houver: hoje têm cerca de 1.000 px de largura.
 - [ ] Autorização da Deborah e do Rômulo para nome e depoimento.
 - [ ] Confirmar se a identidade visual da Colina do Leão foi feita pelo 2B.
-- [ ] Foto original do João e do Miguel (a da apresentação) e quem cuida de design e de copy.
+- [ ] Quem cuida do design e quem cuida da copy (seção Sobre).
 - [ ] Respostas das perguntas frequentes.
 - [ ] Links de Instagram e LinkedIn (vazios não aparecem).
 - [ ] Decidir se o Essencial inclui copy, se o preço é fixo (tirar "a partir de") e se há parcelamento.
@@ -38,7 +38,7 @@ Na prévia, tudo que depende do João aparece com fundo listrado amarelo.
 
 - Astro estático sem React: o único ponto interativo é o menu (`<dialog>` nativo) e a barra fixa de WhatsApp.
 - Tipografia: Instrument Sans (títulos em 500 com tracking -0,03em, texto em 400), escolhida a partir das referências Stric e Ecto que o João enviou. Troca a Newsreader + Schibsted.
-- Logo provisório em `Logo.astro`: "2B" em contorno feito por filtro SVG. Trocar pelo arquivo original.
+- Logo em `Logo.astro` e `public/logo-2b.svg`: monograma 2B em traço contínuo, redesenhado em vetor sobre o print da logo.
 - Fontes locais via Fontsource: sem chamada ao Google, melhor desempenho e privacidade.
 - Lucide não tem ícones de marca; o WhatsApp usa `message-circle` e as redes aparecem como texto.
 - Ciano nunca leva texto branco (2,9:1). Botões usam texto azul-noite sobre ciano (6,6:1); em fundo claro, o ciano escuro #00708F (5,0:1).
