@@ -168,6 +168,6 @@ export const faq: { q: string; answer: string | null }[] = [
   { q: 'Preciso já ter um domínio?', answer: 'Não. Se você ainda não tem, a gente cria o domínio junto com você.' },
   { q: 'Quem cuida da hospedagem?', answer: 'A gente. Cuidamos da hospedagem da sua página para você não precisar se preocupar com isso.' },
   { q: 'Posso pedir alterações depois que a página estiver no ar?', answer: 'Pode. As alterações incluídas dependem do pacote: o Completo já vem com uma rodada de ajuste. E depois da entrega a gente continua por perto para dar suporte.' },
-  { q: 'Como funciona o pagamento?', answer: null },
+  { q: 'Como funciona o pagamento?', answer: 'Você pode pagar por Pix, cartão de crédito ou cartão de débito.' },
   { q: 'Vocês fazem identidade visual ou só o texto?', answer: null },
 ];
