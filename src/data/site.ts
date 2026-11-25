@@ -27,7 +27,7 @@ export const site = {
     'O 2B Studio é o João e o Miguel, de Tremembé, SP. Fazemos landing pages para negócios locais, com design e texto pensados juntos do briefing à publicação.',
   defaultMessage: 'Olá! Vim pelo site do 2B Studio e quero conversar sobre uma landing page.',
   // PENDENTE: links reais. Vazio = o item não aparece.
-  instagram: '',
+  instagram: 'https://www.instagram.com/2bstudio.br/',
   linkedin: '',
 };
 

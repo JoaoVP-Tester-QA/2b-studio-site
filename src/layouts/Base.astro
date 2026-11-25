@@ -19,6 +19,7 @@ const jsonLd = {
   description,
   url: canonical.href,
   image: ogImage.href,
+  sameAs: [site.instagram, site.linkedin].filter(Boolean),
   areaServed: ['Tremembé', 'Vale do Paraíba', 'Serra da Mantiqueira'],
   address: {
     '@type': 'PostalAddress',
