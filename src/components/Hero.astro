@@ -1,26 +1,45 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
-import CaseFrame from './CaseFrame.astro';
+import HeroDiagram from './HeroDiagram.astro';
 import { cases, site, whatsappLink } from '../data/site';
 ---
 
-<section id="topo" aria-labelledby="hero-title" class="on-dark pt-10 pb-16 md:pt-20 md:pb-28" data-hero>
-  <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
-    <div class="md:col-span-7">
-      <p class="label text-apoio-escuro">2B Studio · Tremembé, SP</p>
-      <h1 id="hero-title" class="mt-5 text-display">Design e texto para negócios locais.</h1>
-      <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed text-apoio-escuro">
-        Somos o João e o Miguel. Um cuida do design, o outro da copy, e os dois acompanham cada projeto do
-        briefing até a página no ar.
+<section id="topo" aria-labelledby="hero-title" class="on-dark relative overflow-hidden" data-hero>
+  <div
+    class="absolute inset-y-0 right-0 hidden w-[46%] bg-ciano md:block [clip-path:ellipse(100%_120%_at_100%_50%)]"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="wrap relative grid gap-12 pt-10 md:min-h-[44rem] md:grid-cols-12 md:items-center md:gap-8 md:pt-0">
+    <div class="md:col-span-6 md:py-24">
+      <div role="img" aria-label="2B Studio" class="w-[13rem] sm:w-[16rem] lg:w-[16rem]">
+        <svg viewBox="8 16 600 456" class="block w-full text-ciano" aria-hidden="true">
+          <path
+            d="M151 206 L21 206 L21 150 C21 80 80 24 150 24 C205 24 250 55 272 100 L16 388 L16 462 L258 462 M273 405 L273 462 L390 462 C480 462 545 405 545 335 C545 280 510 232 452 212 C495 195 523 158 523 115 C523 62 478 25 420 25 L272 25 L272 100"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.25"
+            vector-effect="non-scaling-stroke"
+          />
+          <circle cx="590" cy="450" r="16" fill="currentColor" />
+        </svg>
+        <p aria-hidden="true" class="-mt-3 pl-[14%] font-script text-[3.25rem] leading-none text-nevoa sm:text-[4rem] lg:text-[4rem]">
+          studio
+        </p>
+      </div>
+      <h1 id="hero-title" class="mt-8 max-w-[30rem] text-h2">Design e texto para negócios locais.</h1>
+      <p class="mt-5 max-w-[32rem] text-[1.125rem] leading-relaxed text-apoio-escuro">
+        Somos o João e o Miguel, de Tremembé. Um cuida do design, o outro da copy, e os dois acompanham cada
+        projeto do briefing até a página no ar.
       </p>
-      <div class="mt-9 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
-        <a href="#trabalhos" class="btn w-full sm:w-auto">Ver trabalhos</a>
+      <div class="mt-9 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8 md:flex-col md:items-start lg:flex-row lg:items-center">
+        <a href="#trabalhos" class="btn w-full whitespace-nowrap sm:w-auto">Ver trabalhos</a>
         <a
           href={whatsappLink(site.defaultMessage)}
           target="_blank"
           rel="noopener"
           data-cta="whatsapp"
-          class="link-arrow self-start sm:self-auto"
+          class="link-arrow self-start whitespace-nowrap sm:self-auto md:self-start lg:self-auto"
           >Conversar no WhatsApp <ArrowRight size={18} aria-hidden="true" /><span class="sr-only"> (abre o WhatsApp)</span></a
         >
       </div>
@@ -34,9 +53,9 @@ import { cases, site, whatsappLink } from '../data/site';
         ))}
       </p>
     </div>
-    <div class="relative md:col-span-5" aria-label="Trabalhos do 2B Studio" role="group">
-      <CaseFrame item={cases[1]} class="w-[88%]" />
-      <CaseFrame item={cases[0]} class="relative -mt-[28%] ml-auto w-[78%] border-nevoa/25 ring-8 ring-noite" />
+    <div class="relative -mx-5 bg-ciano px-6 pt-14 pb-12 [clip-path:ellipse(140%_100%_at_50%_100%)] md:col-span-5 md:col-start-8 md:mx-0 md:bg-transparent md:p-0 md:[clip-path:none]">
+      <p class="sr-only">O que o 2B cuida na sua página: design, copy, WhatsApp, Instagram e publicação em até 7 dias.</p>
+      <HeroDiagram />
     </div>
   </div>
 </section>
