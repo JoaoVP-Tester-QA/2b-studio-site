@@ -130,7 +130,7 @@
     width: 14cqw;
     height: 1cqw;
     border-radius: 9px;
-    background: color-mix(in srgb, var(--color-ciano) 70%, transparent);
+    background: rgb(255 255 255 / 0.3);
   }
   .selecao {
     position: relative;
@@ -197,9 +197,9 @@
     aspect-ratio: 4 / 5;
     overflow: hidden;
     border-radius: 4px;
-    color: var(--color-ciano);
-    background: linear-gradient(160deg, rgb(0 166 209 / 0.28), rgb(0 166 209 / 0.05));
-    border: 1px solid rgb(0 166 209 / 0.25);
+    color: var(--color-apoio-escuro);
+    background: linear-gradient(160deg, rgb(232 238 242 / 0.14), rgb(232 238 242 / 0.03));
+    border: 1px solid rgb(232 238 242 / 0.12);
   }
   .cards {
     display: grid;
@@ -218,14 +218,14 @@
     bottom: 47%;
     left: -3.4cqw;
     width: 1.4cqw;
-    border-block: 1px solid rgb(0 166 209 / 0.7);
+    border-block: 1px solid rgb(147 163 177 / 0.6);
   }
   .regua::before {
     content: '';
     position: absolute;
     inset-block: 0;
     left: 50%;
-    border-left: 1px dashed rgb(0 166 209 / 0.7);
+    border-left: 1px dashed rgb(147 163 177 / 0.6);
   }
   .regua span {
     position: absolute;
@@ -234,7 +234,7 @@
     translate: 0 -50%;
     font-size: 1.7cqw;
     font-weight: 600;
-    color: var(--color-ciano);
+    color: var(--color-apoio-escuro);
   }
   .cartao {
     display: flex;
@@ -258,7 +258,7 @@
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-ciano);
+    color: var(--color-apoio-escuro);
   }
   .valor {
     margin-top: 0.3em;
