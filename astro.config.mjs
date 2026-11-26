@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // PENDENTE: trocar pelo domínio real do 2B Studio antes de publicar.
-const SITE_URL = process.env.SITE_URL ?? 'https://2bstudio.example';
+const SITE_URL = process.env.SITE_URL ?? 'https://2bstudio.pro';
 
 export default defineConfig({
   site: SITE_URL,
