@@ -22,10 +22,14 @@ import WhatsAppButton from './WhatsAppButton.astro';
     </div>
   </div>
 
-  <a href="#trabalhos" class="dica absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 md:flex" aria-label="Rolar para ver os trabalhos">
-    <span class="mouse" aria-hidden="true"><span class="ponto"></span></span>
-    <svg class="seta" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M3.5 6 8 10.5 12.5 6" stroke="#93a3b1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  <a href="#trabalhos" class="dica absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 md:flex" aria-label="Rolar para ver os trabalhos">
+    <svg class="mouse" width="28" height="44" viewBox="0 0 28 44" fill="none" aria-hidden="true">
+      <rect x="1" y="1" width="26" height="42" rx="13" stroke="#93a3b1" stroke-width="1.5"></rect>
+      <rect class="roda pulsa" x="12" y="9" width="4" height="9" rx="2" fill="#00a6d1"></rect>
+    </svg>
+    <svg width="16" height="22" viewBox="0 0 16 22" fill="none" aria-hidden="true">
+      <path class="seta s1 pulsa" d="M3 3.5 8 8.5 13 3.5" stroke="#00a6d1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path class="seta s2 pulsa" d="M3 11.5 8 16.5 13 11.5" stroke="#00a6d1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
   </a>
 </section>
@@ -38,37 +42,46 @@ import WhatsAppButton from './WhatsAppButton.astro';
       min-height: max(719px, calc(100svh - 81px));
     }
   }
-  .mouse {
-    display: flex;
-    justify-content: center;
-    width: 26px;
-    height: 42px;
-    border: 1.5px solid var(--color-apoio-escuro);
-    border-radius: 13px;
-    padding-top: 8px;
+  .dica .mouse rect:first-child {
+    transition: stroke 200ms var(--ease-2b);
   }
-  .ponto {
-    display: block;
-    width: 4px;
-    height: 8px;
-    border-radius: 2px;
-    background: var(--color-nevoa);
+  .dica:hover .mouse rect:first-child {
+    stroke: #e8eef2;
   }
+  .seta {
+    opacity: 0.35;
+  }
+  /* Sem deslocamento: só a opacidade pulsa, para quem pede menos movimento. */
+  .roda,
+  .s1,
+  .s2 {
+    animation: acender 1.6s ease-in-out infinite;
+  }
+  .s1 { animation-delay: 0.2s; }
+  .s2 { animation-delay: 0.4s; }
   @media (prefers-reduced-motion: no-preference) {
-    .ponto {
-      animation: descer 1.8s ease-in-out infinite;
+    .roda {
+      animation: rolar 1.6s var(--ease-2b) infinite;
     }
-    .seta {
-      animation: pulsar 1.8s ease-in-out infinite;
+    .s1,
+    .s2 {
+      animation: cascata 1.6s ease-in-out infinite;
     }
+    .s1 { animation-delay: 0.2s; }
+    .s2 { animation-delay: 0.4s; }
   }
-  @keyframes descer {
+  @keyframes rolar {
     0% { translate: 0 0; opacity: 1; }
-    70% { translate: 0 12px; opacity: 0; }
-    100% { translate: 0 0; opacity: 0; }
+    60% { translate: 0 10px; opacity: 0; }
+    61% { translate: 0 0; opacity: 0; }
+    100% { translate: 0 0; opacity: 1; }
   }
-  @keyframes pulsar {
-    0%, 100% { translate: 0 0; opacity: 0.5; }
-    50% { translate: 0 4px; opacity: 1; }
+  @keyframes cascata {
+    0%, 100% { opacity: 0.25; translate: 0 -2px; }
+    50% { opacity: 1; translate: 0 2px; }
+  }
+  @keyframes acender {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
   }
 </style>
