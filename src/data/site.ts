@@ -168,7 +168,7 @@ export const packages: Package[] = [
     recommended: false,
     items: [
       'Tudo do Completo',
-      'Área com login só para você',
+      'Áreas personalizáveis e login',
       'Mais configurações e independência',
       'Funções sob medida',
     ],
