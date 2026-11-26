@@ -14,22 +14,14 @@ import { site } from '../data/site';
         nenhuma página vai para o ar sem passar pelas mãos dos dois.
       </p>
     </div>
-    <figure class="sangra -mx-5 flex h-[26rem] items-end justify-center bg-ciano md:mx-0 md:h-[35rem]">
+    <figure class="flex items-end justify-center md:justify-end">
       <Image
         src={dupla}
         alt="João e Miguel, irmãos e fundadores do 2B Studio, lado a lado e sorrindo."
         widths={[480, 720, 1080]}
         sizes="(min-width: 768px) 40rem, 100vw"
-        class="block h-[92%] w-auto max-w-full object-contain object-bottom"
+        class="block h-auto w-full max-w-[40rem]"
       />
     </figure>
   </div>
 </section>
-
-<style>
-  @media (min-width: 48rem) {
-    .sangra {
-      margin-right: calc(-2rem - max(0px, (100vw - 75rem) / 2));
-    }
-  }
-</style>

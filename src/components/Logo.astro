@@ -8,7 +8,8 @@ const { class: cls = '' } = Astro.props;
 ---
 
 <span class:list={['inline-flex items-center gap-2.5', cls]}>
-  <svg viewBox="8 16 546 456" class="h-7 w-auto text-ciano" aria-hidden="true">
+  <span class="inline-flex items-center rounded-[10px] border border-ciano/50 px-2 py-1.5">
+  <svg viewBox="8 16 546 456" class="h-6 w-auto text-ciano" aria-hidden="true">
     <path
       d="M151 206 L21 206 L21 150 C21 80 80 24 150 24 C205 24 250 55 272 100 L16 388 L16 462 L258 462 M273 405 L273 462 L390 462 C480 462 545 405 545 335 C545 280 510 232 452 212 C495 195 523 158 523 115 C523 62 478 25 420 25 L272 25 L272 100"
       fill="none"
@@ -17,5 +18,6 @@ const { class: cls = '' } = Astro.props;
       vector-effect="non-scaling-stroke"
     />
   </svg>
+  </span>
   <span class="label text-[0.6875rem] tracking-[0.22em]">Studio</span>
 </span>
