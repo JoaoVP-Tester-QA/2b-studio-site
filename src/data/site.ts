@@ -171,7 +171,7 @@ export const packages: Package[] = [
       'Tudo do Completo',
       'Área com login só para você',
       'Troca de fotos e textos sem depender da gente',
-      'Funções sob medida, como bloquear datas e vagas',
+      'Funções sob medida',
     ],
     cta: 'Pedir orçamento',
     message: 'Olá! Vim pelo site do 2B Studio e quero um projeto personalizado.',
