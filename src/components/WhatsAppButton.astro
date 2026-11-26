@@ -8,8 +8,9 @@ interface Props {
   variant?: 'solid' | 'ghost' | 'dark';
   class?: string;
   full?: boolean;
+  icon?: boolean;
 }
-const { label, message = site.defaultMessage, variant = 'solid', class: cls = '', full = false } = Astro.props;
+const { label, message = site.defaultMessage, variant = 'solid', class: cls = '', full = false, icon = true } = Astro.props;
 ---
 
 <a
@@ -19,7 +20,7 @@ const { label, message = site.defaultMessage, variant = 'solid', class: cls = ''
   rel="noopener"
   data-cta="whatsapp"
 >
-  <MessageCircle size={20} aria-hidden="true" />
+  {icon && <MessageCircle size={20} aria-hidden="true" />}
   <span>{label}</span>
   <span class="sr-only"> (abre o WhatsApp)</span>
 </a>
