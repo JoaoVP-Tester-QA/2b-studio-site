@@ -12,6 +12,12 @@
   --color-ciano: #00a6d1;
   --color-ciano-claro: #3fc0e3;
   --color-ciano-escuro: #00708f;
+  --color-linha: #1a3346;
+  --color-ponto: #2a4256;
+  --color-anel: #4a6e86;
+  --color-texto-claro: #44525f;
+  --color-inativo: #5b6b78;
+  --color-linha-clara: #c9d3da;
 
   --font-display: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
@@ -28,6 +34,7 @@
   --text-small--line-height: 1.5;
 
   --radius-xs: 2px;
+  --ease-2b: cubic-bezier(.2, .7, .2, 1);
 }
 
 @layer base {
@@ -93,29 +100,44 @@
     font-size: 1rem;
     line-height: 1.2;
     text-decoration: none;
-    transition: background-color 150ms ease;
+    transition:
+      filter 200ms var(--ease-2b),
+      translate 150ms var(--ease-2b),
+      scale 150ms var(--ease-2b),
+      background-color 200ms var(--ease-2b);
   }
-  .btn:hover { background: var(--color-ciano-claro); }
+  @media (hover: hover) {
+    .btn:hover { filter: brightness(1.1); translate: 0 -1px; }
+    .btn-ghost:hover { background: rgb(232 238 242 / 0.08); }
+  }
+  .btn:active { scale: 0.98; }
   .btn-ghost {
     background: transparent;
     color: currentColor;
     box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 40%, transparent);
   }
-  .btn-ghost:hover { background: var(--color-nevoa); color: var(--color-noite); }
 
   .btn-dark { background: var(--color-noite); color: var(--color-nevoa); }
-  .btn-dark:hover { background: var(--color-noite-2); }
+
+  /* Links em fundo escuro: neutros, sempre sublinhados (o sublinhado identifica o link). */
+  .link-escuro {
+    color: var(--color-nevoa);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-apoio-escuro);
+    transition: color 200ms var(--ease-2b);
+  }
+  .link-escuro:hover { color: #fff; }
 
   .link-arrow {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
     font-weight: 600;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.3em;
   }
-  .link-arrow:hover { text-decoration-thickness: 2px; }
+  .link-arrow svg { transition: translate 200ms var(--ease-2b); }
+  .link-arrow:hover svg { translate: 2px -2px; }
 
   .rule { border-color: color-mix(in srgb, var(--color-noite) 15%, transparent); }
   .rule-light { border-color: color-mix(in srgb, var(--color-nevoa) 16%, transparent); }

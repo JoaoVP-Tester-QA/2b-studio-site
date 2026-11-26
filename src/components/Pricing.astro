@@ -13,12 +13,12 @@ import { packages, whatsappLink } from '../data/site';
       <p class="text-apoio-escuro md:col-span-4 md:col-start-9">Hoje o link da sua bio leva a um perfil. Com a página, ele leva a um lugar que apresenta o seu trabalho, passa confiança e termina numa conversa no WhatsApp. Preço fechado, sem letra miúda.</p>
     </div>
 
-    <div class="mt-14 grid gap-6 md:mt-20 md:grid-cols-2">
+    <div class="grupo mt-14 grid gap-6 md:mt-20 md:grid-cols-2">
       {packages.map((p) => (
         <article
           aria-labelledby={`pkg-${p.id}`}
           class:list={[
-            'reveal flex flex-col p-7 md:p-10',
+            'cartao-pacote flex flex-col p-7 md:p-10',
             p.recommended ? 'border border-nevoa/30 bg-noite-2' : 'border rule-light bg-noite-2',
           ]}
         >
@@ -53,9 +53,27 @@ import { packages, whatsappLink } from '../data/site';
 
     <p class="mt-4 text-apoio-escuro">
       Precisa de algo diferente?{' '}
-      <a href={whatsappLink('Olá! Vim pelo site do 2B Studio e tenho um projeto personalizado.')} target="_blank" rel="noopener" class="font-semibold text-nevoa underline underline-offset-4">
+      <a href={whatsappLink('Olá! Vim pelo site do 2B Studio e tenho um projeto personalizado.')} target="_blank" rel="noopener" class="link-escuro font-semibold">
         Conte no WhatsApp e montamos uma proposta<ArrowRight size={16} class="ml-1 inline align-[-2px]" aria-hidden="true" />
       </a>
     </p>
   </div>
 </section>
+
+<style>
+  .cartao-pacote {
+    transition:
+      translate 300ms var(--ease-2b),
+      box-shadow 300ms var(--ease-2b),
+      opacity 300ms var(--ease-2b);
+  }
+  @media (hover: hover) {
+    .cartao-pacote:hover {
+      translate: 0 -4px;
+      box-shadow: inset 0 0 0 1px var(--color-anel);
+    }
+    .grupo:has(.cartao-pacote:hover) .cartao-pacote:not(:hover) {
+      opacity: 0.7;
+    }
+  }
+</style>

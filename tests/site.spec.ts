@@ -81,3 +81,12 @@ test.describe('celular', () => {
     await expect(bar).toHaveAttribute('data-show', 'false');
   });
 });
+
+test('Como funciona abre um passo por vez e anuncia o progresso', async ({ page }) => {
+  const secao = page.locator('#como-funciona');
+  const passo3 = secao.getByRole('button', { name: /Passo 3/ });
+  await passo3.click();
+  await expect(passo3).toHaveAttribute('aria-expanded', 'true');
+  await expect(secao.getByRole('button', { name: /Passo 1/ })).toHaveAttribute('aria-expanded', 'false');
+  await expect(secao.locator('[data-passo-atual]')).toHaveText('Passo 3 de 4');
+});

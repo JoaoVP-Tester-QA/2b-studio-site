@@ -3,9 +3,9 @@ import HeroConstrucao from './HeroConstrucao.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 ---
 
-<section id="topo" aria-labelledby="hero-title" class="on-dark relative overflow-hidden" data-hero>
-  <div class="wrap relative grid gap-12 pt-10 md:min-h-[44rem] md:grid-cols-12 md:items-center md:gap-8 md:pt-0">
-    <div class="pt-6 md:col-span-6 md:py-24">
+<section id="topo" aria-labelledby="hero-title" class="heroi on-dark relative overflow-hidden" data-hero>
+  <div class="wrap relative grid gap-12 pt-10 pb-16 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-14 md:pt-[4.5rem] md:pb-[7.5rem]">
+    <div class="pt-6 md:pt-0">
       <h1 id="hero-title" class="text-[2.5rem] leading-[1.08] font-medium whitespace-nowrap sm:text-[3.5rem] md:text-[2.625rem] lg:text-[3.5rem] xl:text-[4rem]">
         <span class="block">Sua marca.</span>
         <span class="block text-ciano">Sua presença.</span>
@@ -16,9 +16,59 @@ import WhatsAppButton from './WhatsAppButton.astro';
       </p>
       <WhatsAppButton label="Quero minha página" icon={false} class="mt-9 w-full sm:w-auto" />
     </div>
-    <div class="relative md:col-span-6 md:col-start-7">
+    <div class="relative">
       <p class="sr-only">Ilustração de uma página sendo desenhada: tipografia, cores e texto.</p>
       <HeroConstrucao />
     </div>
   </div>
+
+  <a href="#trabalhos" class="dica absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 md:flex" aria-label="Rolar para ver os trabalhos">
+    <span class="mouse" aria-hidden="true"><span class="ponto"></span></span>
+    <svg class="seta" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M3.5 6 8 10.5 12.5 6" stroke="#93a3b1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </a>
 </section>
+
+<style>
+  @media (min-width: 48rem) {
+    .heroi {
+      display: flex;
+      align-items: center;
+      min-height: max(719px, calc(100svh - 81px));
+    }
+  }
+  .mouse {
+    display: flex;
+    justify-content: center;
+    width: 26px;
+    height: 42px;
+    border: 1.5px solid var(--color-apoio-escuro);
+    border-radius: 13px;
+    padding-top: 8px;
+  }
+  .ponto {
+    display: block;
+    width: 4px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--color-nevoa);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ponto {
+      animation: descer 1.8s ease-in-out infinite;
+    }
+    .seta {
+      animation: pulsar 1.8s ease-in-out infinite;
+    }
+  }
+  @keyframes descer {
+    0% { translate: 0 0; opacity: 1; }
+    70% { translate: 0 12px; opacity: 0; }
+    100% { translate: 0 0; opacity: 0; }
+  }
+  @keyframes pulsar {
+    0%, 100% { translate: 0 0; opacity: 0.5; }
+    50% { translate: 0 4px; opacity: 1; }
+  }
+</style>

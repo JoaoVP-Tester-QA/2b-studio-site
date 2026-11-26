@@ -7,23 +7,23 @@
  */
 ---
 
-<div class="cena relative mx-auto aspect-square w-full max-w-[34rem]" aria-hidden="true">
+<div class="cena relative mx-auto aspect-square w-full max-w-[40rem]" aria-hidden="true">
   <!-- Grid de fundo -->
   <div class="grade absolute inset-0"></div>
 
   <!-- Página -->
-  <div class="pagina absolute top-[16%] right-[4%] left-[8%] ">
-    <div class="nav">
+  <div class="pagina entra absolute top-[16%] right-[4%] left-[8%]" style="--d:.1s">
+    <div class="nav entra" style="--d:.4s">
       <span class="marca"></span>
       <span class="ml-auto flex gap-[3cqw]"><i></i><i></i><i></i></span>
       <span class="pill"></span>
     </div>
 
     <div class="corpo">
-      <div class="col-texto">
+      <div class="col-texto entra" style="--d:.6s">
         <span class="sobretitulo"></span>
         <div class="selecao">
-          <p class="titulo">Seu negócio,<br />bem apresentado.<span class="cursor"></span></p>
+          <p class="titulo"><span class="palavra" style="--d:1s">Seu</span> <span class="palavra" style="--d:1.25s">negócio,</span><br /><span class="palavra" style="--d:1.5s">bem</span> <span class="palavra" style="--d:1.75s">apresentado.</span><span class="cursor"></span></p>
           <b class="h tl"></b><b class="h tr"></b><b class="h bl"></b><b class="h br"></b>
           <span class="dim">W 100%</span>
         </div>
@@ -31,7 +31,7 @@
         <span class="linha w-[70%]"></span>
         <span class="botao">Fale com a gente</span>
       </div>
-      <div class="col-imagem">
+      <div class="col-imagem entra" style="--d:.8s">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="h-full w-full">
           <path d="M0 78 L28 50 L44 64 L66 38 L100 72 L100 100 L0 100 Z" fill="currentColor" opacity="0.35" />
           <circle cx="74" cy="24" r="7" fill="currentColor" opacity="0.5" />
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="cards">
+    <div class="cards entra" style="--d:1s">
       <span></span><span></span><span></span>
     </div>
 
@@ -48,7 +48,7 @@
   </div>
 
   <!-- Cartão: tipografia -->
-  <div class="cartao absolute top-[3%] left-0">
+  <div class="cartao flutua absolute top-[3%] left-0" style="--d:1.9s;--f:6s">
     <span class="aa">Aa</span>
     <span class="flex flex-col">
       <span class="rotulo">Tipografia</span>
@@ -57,7 +57,7 @@
   </div>
 
   <!-- Cartão: cores -->
-  <div class="cartao absolute right-0 bottom-[4%]">
+  <div class="cartao flutua absolute right-0 bottom-[4%]" style="--d:2.1s;--f:7s">
     <span class="flex flex-col">
       <span class="rotulo">Cores</span>
       <span class="valor">Da sua marca</span>
@@ -248,13 +248,13 @@
     box-shadow: 0 18px 36px -18px rgb(0 0 0 / 0.8);
   }
   .aa {
-    font-size: 6.4cqw;
+    font-size: clamp(1.75rem, 5.6cqw, 2.125rem);
     line-height: 1;
     font-weight: 500;
     color: var(--color-nevoa);
   }
   .rotulo {
-    font-size: max(0.625rem, 1.9cqw);
+    font-size: max(0.8125rem, 1.9cqw);
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -262,7 +262,7 @@
   }
   .valor {
     margin-top: 0.3em;
-    font-size: max(0.75rem, 2.5cqw);
+    font-size: max(0.875rem, 2.4cqw);
     color: var(--color-nevoa);
   }
   .bola {
@@ -272,21 +272,37 @@
     box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
   }
   @media (prefers-reduced-motion: no-preference) {
+    .entra,
+    .flutua {
+      animation: entrar 0.6s var(--ease-2b) var(--d) both;
+    }
+    .flutua {
+      animation:
+        entrar 0.6s var(--ease-2b) var(--d) both,
+        flutuar var(--f) ease-in-out calc(var(--d) + 0.6s) infinite;
+    }
+    .palavra {
+      animation: aparecer 0.4s var(--ease-2b) var(--d) both;
+    }
     .cursor {
-      animation: piscar 1.1s steps(1) infinite;
-    }
-    .cartao {
-      animation: flutuar 6s ease-in-out infinite;
-    }
-    .cartao:last-child {
-      animation-delay: -3s;
+      opacity: 0;
+      animation: piscar 1s steps(1) 2s infinite;
     }
   }
+  @keyframes entrar {
+    from { opacity: 0; translate: 0 14px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+  @keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
   @keyframes piscar {
+    0% { opacity: 1; }
     50% { opacity: 0; }
   }
   @keyframes flutuar {
     0%, 100% { translate: 0 0; }
-    50% { translate: 0 -6px; }
+    50% { translate: 0 -5px; }
   }
 </style>

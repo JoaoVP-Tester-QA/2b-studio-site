@@ -3,36 +3,33 @@ import { Image } from 'astro:assets';
 import dupla from '../assets/dupla-recorte.png';
 import { site } from '../data/site';
 
-const facts = [
-  'A página fica pronta em até 7 dias, do briefing à publicação.',
-  'Design e texto são pensados ao mesmo tempo, não um depois do outro.',
-  'Pegamos poucos projetos por vez, para dar atenção a cada um.',
-];
 ---
 
-<section id="sobre" aria-labelledby="sobre-title" class="on-dark bg-noite-2 pt-20 md:pt-32">
-  <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
-    <div class="pb-0 md:col-span-6 md:pb-32">
-      <h2 id="sobre-title" class="text-h2">Dois irmãos, um estúdio pequeno de propósito.</h2>
-      <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed">
+<section id="sobre" aria-labelledby="sobre-title" class="on-dark overflow-hidden bg-noite-2 pt-20 md:pt-24">
+  <div class="wrap grid gap-12 md:grid-cols-[1fr_1.05fr] md:items-end md:gap-[4.5rem]">
+    <div class="md:pb-24">
+      <h2 id="sobre-title" class="text-h2 md:text-[3rem]">Dois irmãos, um estúdio pequeno de propósito.</h2>
+      <p class="mt-6 max-w-[32.5rem] text-[1.1875rem] leading-[1.55]">
         O 2B é o João e o Miguel, irmãos e fundadores, de {site.city}. Um cuida do design, o outro do texto, e
         nenhuma página vai para o ar sem passar pelas mãos dos dois.
       </p>
-      <ul class="mt-10 border-t rule-light">
-        {facts.map((f) => (
-          <li class="border-b rule-light py-4 text-nevoa/85">{f}</li>
-        ))}
-      </ul>
     </div>
-    <figure class="relative mx-auto w-full max-w-[36rem] md:col-span-6">
-      <div class="absolute inset-x-0 top-[26%] bottom-0 bg-ciano" aria-hidden="true"></div>
+    <figure class="sangra -mx-5 flex h-[26rem] items-end justify-center bg-ciano md:mx-0 md:h-[35rem]">
       <Image
         src={dupla}
         alt="João e Miguel, irmãos e fundadores do 2B Studio, lado a lado e sorrindo."
         widths={[480, 720, 1080]}
-        sizes="(min-width: 768px) 36rem, 100vw"
-        class="relative block w-full"
+        sizes="(min-width: 768px) 40rem, 100vw"
+        class="block h-[92%] w-auto max-w-full object-contain object-bottom"
       />
     </figure>
   </div>
 </section>
+
+<style>
+  @media (min-width: 48rem) {
+    .sangra {
+      margin-right: calc(-2rem - max(0px, (100vw - 75rem) / 2));
+    }
+  }
+</style>

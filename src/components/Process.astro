@@ -1,23 +1,111 @@
 ---
+import Plus from '@lucide/astro/icons/plus';
 import { steps } from '../data/site';
 ---
 
-<section id="como-funciona" aria-labelledby="processo-title" class="bg-claro py-20 text-noite md:py-32">
-  <div class="wrap grid gap-12 md:grid-cols-12 md:gap-8">
-    <div class="md:col-span-4">
-      <h2 id="processo-title" class="text-h2">Do primeiro oi à página no ar.</h2>
-      <p class="mt-6 text-apoio">Até 7 dias do briefing à publicação. Sem prazo indefinido.</p>
+<section id="como-funciona" aria-labelledby="processo-title" class="bg-claro py-20 text-noite md:py-24">
+  <div class="wrap grid gap-12 md:grid-cols-2 md:gap-16" data-passos>
+    <div>
+      <h2 id="processo-title" class="text-h2 md:text-[3rem]">Do primeiro oi à página no ar.</h2>
+      <p class="mt-6 text-[1.0625rem] text-texto-claro">Até 7 dias do briefing à publicação. Sem prazo indefinido.</p>
+      <div class="mt-10 flex max-w-[22.5rem] gap-1.5" aria-hidden="true">
+        {steps.map((_, i) => <span class:list={['progresso h-1 flex-1 rounded-[2px]', i === 0 ? 'bg-noite' : 'bg-linha-clara']} data-seg={i}></span>)}
+      </div>
+      <p class="mt-3 text-small text-texto-claro" aria-live="polite" data-passo-atual>Passo 1 de {steps.length}</p>
     </div>
-    <ol class="md:col-span-7 md:col-start-6">
-      {steps.map((s, i) => (
-        <li class="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t rule py-7 md:grid-cols-[5rem_1fr] md:py-9">
-          <span class="font-display text-[2.5rem] leading-none text-noite md:text-[3rem]" aria-hidden="true">{i + 1}</span>
-          <div>
-            <h3 class="text-h3"><span class="sr-only">Passo {i + 1}: </span>{s.title}</h3>
-            <p class="mt-2 text-apoio">{s.text}</p>
-          </div>
-        </li>
-      ))}
+
+    <ol class="border-b border-linha-clara">
+      {steps.map((s, i) => {
+        const aberto = i === 0;
+        return (
+          <li class:list={['passo border-t', aberto ? 'border-noite' : 'border-linha-clara']} data-passo={i} data-aberto={aberto ? '' : undefined}>
+            <h3>
+              <button
+                type="button"
+                class="cabeca flex w-full items-center gap-7 py-6 text-left"
+                aria-expanded={aberto ? 'true' : 'false'}
+                aria-controls={`passo-${i}`}
+                id={`passo-btn-${i}`}
+              >
+                <span class="w-11 shrink-0 font-display text-[2.75rem] leading-none font-medium" aria-hidden="true">{i + 1}</span>
+                <span class="flex-1 text-[1.5rem] leading-tight font-medium"><span class="sr-only">Passo {i + 1}: </span>{s.title}</span>
+                <Plus size={20} class="icone shrink-0" aria-hidden="true" />
+              </button>
+            </h3>
+            <div id={`passo-${i}`} role="region" aria-labelledby={`passo-btn-${i}`} class="corpo">
+              <div class="overflow-hidden">
+                <p class="pb-7 pl-[4.5rem] text-[1.0625rem] leading-[1.55] text-texto-claro">{s.text}</p>
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ol>
   </div>
 </section>
+
+<style>
+  .cabeca {
+    color: var(--color-inativo);
+    transition: color 200ms var(--ease-2b);
+  }
+  .cabeca:hover,
+  [data-aberto] .cabeca {
+    color: var(--color-noite);
+  }
+  .icone {
+    transition: rotate 300ms var(--ease-2b);
+  }
+  [data-aberto] .icone {
+    rotate: 45deg;
+  }
+  .passo {
+    transition: border-color 300ms var(--ease-2b);
+  }
+  .corpo {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      grid-template-rows 350ms var(--ease-2b),
+      opacity 350ms var(--ease-2b),
+      visibility 0s 350ms;
+  }
+  [data-aberto] .corpo {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition:
+      grid-template-rows 350ms var(--ease-2b),
+      opacity 350ms var(--ease-2b),
+      visibility 0s;
+  }
+  .progresso {
+    transition: background-color 300ms var(--ease-2b);
+  }
+</style>
+
+<script>
+  const raiz = document.querySelector<HTMLElement>('[data-passos]');
+  if (raiz) {
+    const passos = [...raiz.querySelectorAll<HTMLElement>('[data-passo]')];
+    const segs = [...raiz.querySelectorAll<HTMLElement>('[data-seg]')];
+    const atual = raiz.querySelector<HTMLElement>('[data-passo-atual]');
+    const abrir = (alvo: number) => {
+      passos.forEach((p, i) => {
+        const on = i === alvo;
+        p.toggleAttribute('data-aberto', on);
+        p.classList.toggle('border-noite', on);
+        p.classList.toggle('border-linha-clara', !on);
+        p.querySelector('button')?.setAttribute('aria-expanded', String(on));
+      });
+      segs.forEach((s, i) => {
+        s.classList.toggle('bg-noite', i <= alvo);
+        s.classList.toggle('bg-linha-clara', i > alvo);
+      });
+      if (atual) atual.textContent = `Passo ${alvo + 1} de ${passos.length}`;
+    };
+    passos.forEach((p, i) => p.querySelector('button')?.addEventListener('click', () => abrir(i)));
+  }
+</script>

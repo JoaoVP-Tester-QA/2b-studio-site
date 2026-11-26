@@ -1,17 +1,17 @@
 ---
-/** Moldura mínima de navegador com a captura real do site do cliente. */
+/** Moldura de navegador com a captura real do site do cliente. */
 import { Image } from 'astro:assets';
 import type { Case } from '../data/site';
 interface Props { item: Case; class?: string }
 const { item, class: cls = '' } = Astro.props;
 ---
 
-<figure class:list={['overflow-hidden rounded-xs border rule-light bg-noite-2', cls]}>
-  <div class="flex items-center gap-3 border-b rule-light px-3 py-2">
+<figure class:list={['overflow-hidden rounded-[10px] border border-linha bg-noite shadow-[0_12px_32px_rgba(0,0,0,0.35)]', cls]}>
+  <div class="flex h-9 items-center gap-3 border-b border-linha px-3.5">
     <span class="flex gap-1.5" aria-hidden="true">
-      <span class="size-2 rounded-full bg-nevoa/25"></span>
-      <span class="size-2 rounded-full bg-nevoa/25"></span>
-      <span class="size-2 rounded-full bg-nevoa/25"></span>
+      <span class="size-[9px] rounded-full bg-ponto"></span>
+      <span class="size-[9px] rounded-full bg-ponto"></span>
+      <span class="size-[9px] rounded-full bg-ponto"></span>
     </span>
     <span class="truncate text-[0.8125rem] text-apoio-escuro">{item.domain}</span>
   </div>
@@ -19,8 +19,8 @@ const { item, class: cls = '' } = Astro.props;
     src={item.image}
     alt={item.imageAlt}
     widths={[480, 720, 1000]}
-    sizes="(min-width: 768px) 640px, 100vw"
+    sizes="(min-width: 768px) 620px, 100vw"
     loading="lazy"
-    class:list={['block w-full object-cover object-top', item.aspect]}
+    class="block aspect-[16/10] w-full object-cover object-top"
   />
 </figure>
