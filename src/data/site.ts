@@ -123,7 +123,7 @@ export type Package = {
   message: string;
 };
 
-// Completo R$ 1.420 (apresentação no Canva). Essencial subiu para R$ 970 e o "a partir de" saiu,
+// Completo "a partir de" R$ 1.420 (pedido do João em 26/11/2026). Essencial R$ 970 fechado,
 // aprovados pelo João em 25/11/2026: diferença menor empurra para o Completo.
 // Valores e itens definidos pelo João. A ordem (Completo primeiro) é ancoragem de preço.
 export const packages: Package[] = [
@@ -132,7 +132,7 @@ export const packages: Package[] = [
     name: 'Completo',
     tagline: 'Design e texto feitos juntos',
     price: '1.420',
-    fromPrice: false,
+    fromPrice: true,
     recommended: true,
     items: [
       'Tudo do Essencial',
