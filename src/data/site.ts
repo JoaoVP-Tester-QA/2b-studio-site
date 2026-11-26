@@ -114,7 +114,7 @@ export type Package = {
   id: string;
   name: string;
   tagline: string;
-  price: string;
+  price: string | null;
   fromPrice: boolean;
   recommended: boolean;
   items: string[];
@@ -123,27 +123,10 @@ export type Package = {
   message: string;
 };
 
-// Completo "a partir de" R$ 1.420 (pedido do João em 26/11/2026). Essencial R$ 970 fechado,
-// aprovados pelo João em 25/11/2026: diferença menor empurra para o Completo.
-// Valores e itens definidos pelo João. A ordem (Completo primeiro) é ancoragem de preço.
+// Pedido do João em 26/11/2026: três cards, Completo no meio com "a partir de" R$ 1.420
+// (pode subir conforme o pedido), Essencial R$ 970 fechado e um Personalizado sem preço,
+// inspirado no Colina do Leão (área com login, troca de fotos, bloqueio de vagas).
 export const packages: Package[] = [
-  {
-    id: 'completo',
-    name: 'Completo',
-    tagline: 'Design e texto feitos juntos',
-    price: '1.420',
-    fromPrice: true,
-    recommended: true,
-    items: [
-      'Tudo do Essencial',
-      'Texto da página escrito por nós',
-      'Até 8 seções',
-      '1 rodada de ajuste inclusa',
-    ],
-    note: 'Por R$ 450 a mais, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
-    cta: 'Quero o Completo',
-    message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Completo.',
-  },
   {
     id: 'essencial',
     name: 'Essencial',
@@ -159,6 +142,39 @@ export const packages: Package[] = [
     ],
     cta: 'Quero o Essencial',
     message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Essencial.',
+  },
+  {
+    id: 'completo',
+    name: 'Completo',
+    tagline: 'Design e texto feitos juntos',
+    price: '1.420',
+    fromPrice: true,
+    recommended: true,
+    items: [
+      'Tudo do Essencial',
+      'Texto da página escrito por nós',
+      'Até 8 seções',
+      '1 rodada de ajuste inclusa',
+    ],
+    note: 'Por R$ 450 a mais que o Essencial, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
+    cta: 'Quero o Completo',
+    message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Completo.',
+  },
+  {
+    id: 'personalizado',
+    name: 'Personalizado',
+    tagline: 'Para quem precisa de mais que uma página',
+    price: null,
+    fromPrice: false,
+    recommended: false,
+    items: [
+      'Tudo do Completo',
+      'Área com login só para você',
+      'Troca de fotos e textos sem depender da gente',
+      'Funções sob medida, como bloquear datas e vagas',
+    ],
+    cta: 'Pedir orçamento',
+    message: 'Olá! Vim pelo site do 2B Studio e quero um projeto personalizado.',
   },
 ];
 

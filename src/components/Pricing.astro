@@ -1,7 +1,6 @@
 ---
-import ArrowRight from '@lucide/astro/icons/arrow-right';
 import WhatsAppButton from './WhatsAppButton.astro';
-import { packages, whatsappLink } from '../data/site';
+import { packages } from '../data/site';
 ---
 
 <section id="pacotes" aria-labelledby="pacotes-title" class="on-dark border-t rule-light py-20 md:py-32">
@@ -13,16 +12,16 @@ import { packages, whatsappLink } from '../data/site';
       <p class="text-apoio-escuro md:col-span-4 md:col-start-9">Hoje o link da sua bio leva a um perfil. Com a página, ele leva a um lugar que apresenta o seu trabalho, passa confiança e termina numa conversa no WhatsApp. Preço combinado antes de começar, sem letra miúda.</p>
     </div>
 
-    <div class="grupo mt-14 grid gap-6 md:mt-20 md:grid-cols-2">
+    <div class="grupo mt-14 grid gap-6 md:mt-20 lg:grid-cols-3">
       {packages.map((p) => (
         <article
           aria-labelledby={`pkg-${p.id}`}
           class:list={[
-            'cartao-pacote flex flex-col p-7 md:p-10',
+            'cartao-pacote flex flex-col p-7 md:p-10 lg:p-8',
             p.recommended ? 'border border-nevoa/30 bg-noite-2' : 'border rule-light bg-noite-2',
           ]}
         >
-          <div class="flex min-h-[3.75rem] items-start justify-between gap-4">
+          <div class="flex min-h-[3.75rem] items-start lg:min-h-[4.75rem] xl:min-h-[3.75rem] justify-between gap-4">
             <div>
               <h3 id={`pkg-${p.id}`} class="text-h3">{p.name}</h3>
               <p class:list={['mt-1 text-small', 'text-apoio-escuro']}>{p.tagline}</p>
@@ -30,11 +29,21 @@ import { packages, whatsappLink } from '../data/site';
             {p.recommended && <p class="text-small text-ciano">Recomendado</p>}
           </div>
 
-          <p class="mt-10 flex items-baseline gap-2" aria-label={`${p.fromPrice ? 'a partir de ' : ''}${p.price} reais`}>
-            {p.fromPrice && <span class:list={['text-small', 'text-apoio-escuro']}>a partir de</span>}
-            <span class="text-[1.25rem] font-medium">R$</span>
-            <span class="font-display text-[4rem] leading-none font-medium tracking-[-0.04em] tabular-nums">{p.price}</span>
-          </p>
+          {p.price ? (
+            <div class="mt-10">
+              <p class="sr-only">{`Preço: ${p.fromPrice ? 'a partir de ' : ''}${p.price} reais`}</p>
+              <p class="h-5 text-small text-apoio-escuro" aria-hidden="true">{p.fromPrice ? 'a partir de' : ''}</p>
+              <p class="mt-1 flex h-16 items-baseline gap-2" aria-hidden="true">
+                <span class="text-[1.25rem] font-medium">R$</span>
+                <span class="font-display text-[4rem] leading-none font-medium tracking-[-0.04em] tabular-nums">{p.price}</span>
+              </p>
+            </div>
+          ) : (
+            <div class="mt-10">
+              <p class="h-5 text-small text-apoio-escuro">valor conforme o projeto</p>
+              <p class="mt-1 flex h-16 items-end pb-1 font-display text-[2.5rem] leading-none font-medium tracking-[-0.03em]">Sob medida</p>
+            </div>
+          )}
 
           <ul class="mt-8 border-t rule-light">
             {p.items.map((it) => (
@@ -51,12 +60,6 @@ import { packages, whatsappLink } from '../data/site';
 
     {packages.filter((p) => p.note).map((p) => <p class="mt-8 max-w-[44rem] text-nevoa/90">{p.note}</p>)}
 
-    <p class="mt-4 text-apoio-escuro">
-      Precisa de algo diferente?{' '}
-      <a href={whatsappLink('Olá! Vim pelo site do 2B Studio e tenho um projeto personalizado.')} target="_blank" rel="noopener" class="link-escuro font-semibold">
-        Conte no WhatsApp e montamos uma proposta<ArrowRight size={16} class="ml-1 inline align-[-2px]" aria-hidden="true" />
-      </a>
-    </p>
   </div>
 </section>
 
