@@ -156,7 +156,6 @@ export const packages: Package[] = [
       'Até 8 seções',
       '1 rodada de ajuste inclusa',
     ],
-    note: 'Por R$ 450 a mais que o Essencial, a gente escreve todo o texto, a página ganha até 8 seções e você tem uma rodada de ajuste.',
     cta: 'Quero o Completo',
     message: 'Olá! Vim pelo site do 2B Studio e quero o pacote Completo.',
   },
