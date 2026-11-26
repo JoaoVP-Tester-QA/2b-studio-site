@@ -1,14 +1,9 @@
 ---
-import HeroMockup from './HeroMockup.astro';
+import HeroConstrucao from './HeroConstrucao.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 ---
 
 <section id="topo" aria-labelledby="hero-title" class="on-dark relative overflow-hidden" data-hero>
-  <div
-    class="absolute inset-y-0 right-0 hidden w-[46%] bg-ciano md:block [clip-path:ellipse(100%_120%_at_100%_50%)]"
-    aria-hidden="true"
-  >
-  </div>
   <div class="wrap relative grid gap-12 pt-10 md:min-h-[44rem] md:grid-cols-12 md:items-center md:gap-8 md:pt-0">
     <div class="pt-6 md:col-span-6 md:py-24">
       <h1 id="hero-title" class="text-[2.5rem] leading-[1.08] font-medium whitespace-nowrap sm:text-[3.5rem] md:text-[2.625rem] lg:text-[3.5rem] xl:text-[4rem]">
@@ -21,9 +16,9 @@ import WhatsAppButton from './WhatsAppButton.astro';
       </p>
       <WhatsAppButton label="Conversar no WhatsApp" class="mt-9 w-full sm:w-auto" />
     </div>
-    <div class="relative -mx-5 bg-ciano px-6 pt-14 pb-12 [clip-path:ellipse(140%_100%_at_50%_100%)] md:col-span-5 md:col-start-8 md:mx-0 md:bg-transparent md:p-0 md:[clip-path:none]">
-      <p class="sr-only">Páginas feitas pelo 2B, no computador e no celular: design profissional, texto claro, feita para o celular e no ar em até 7 dias.</p>
-      <HeroMockup />
+    <div class="relative md:col-span-6 md:col-start-7">
+      <p class="sr-only">Ilustração de uma página sendo desenhada: tipografia, cores e texto.</p>
+      <HeroConstrucao />
     </div>
   </div>
 </section>

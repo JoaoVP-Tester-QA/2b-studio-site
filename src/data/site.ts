@@ -136,7 +136,7 @@ export const packages: Package[] = [
     recommended: true,
     items: [
       'Tudo do Essencial',
-      'Copy estratégica escrita por nós',
+      'Texto da página escrito por nós',
       'Até 8 seções',
       '1 rodada de ajuste inclusa',
     ],

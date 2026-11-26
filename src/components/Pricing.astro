@@ -1,5 +1,4 @@
 ---
-import Check from '@lucide/astro/icons/check';
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { packages, whatsappLink } from '../data/site';
@@ -9,8 +8,7 @@ import { packages, whatsappLink } from '../data/site';
   <div class="wrap">
     <div class="grid gap-6 md:grid-cols-12 md:items-end">
       <div class="md:col-span-7">
-        <p class="label text-apoio-escuro">Pacotes</p>
-        <h2 id="pacotes-title" class="mt-4 text-h2">Pouco pelo que muda no seu Instagram.</h2>
+        <h2 id="pacotes-title" class="text-h2">Pouco pelo que muda no seu Instagram.</h2>
       </div>
       <p class="text-apoio-escuro md:col-span-4 md:col-start-9">Hoje o link da sua bio leva a um perfil. Com a página, ele leva a um lugar que apresenta o seu trabalho, passa confiança e termina numa conversa no WhatsApp. Preço fechado, sem letra miúda.</p>
     </div>
@@ -29,7 +27,7 @@ import { packages, whatsappLink } from '../data/site';
               <h3 id={`pkg-${p.id}`} class="text-h3">{p.name}</h3>
               <p class:list={['mt-1 text-small', 'text-apoio-escuro']}>{p.tagline}</p>
             </div>
-            {p.recommended && <p class="label bg-ciano px-2 py-1 text-[0.75rem] text-noite">Recomendado</p>}
+            {p.recommended && <p class="text-small text-ciano">Recomendado</p>}
           </div>
 
           <p class="mt-10 flex items-baseline gap-2" aria-label={`${p.fromPrice ? 'a partir de ' : ''}${p.price} reais`}>
@@ -38,12 +36,9 @@ import { packages, whatsappLink } from '../data/site';
             <span class="font-display text-[4rem] leading-none font-medium tracking-[-0.04em] tabular-nums">{p.price}</span>
           </p>
 
-          <ul class:list={['mt-8 grid gap-3 border-t pt-8', 'rule-light']}>
+          <ul class="mt-8 border-t rule-light">
             {p.items.map((it) => (
-              <li class="flex gap-3">
-                <Check size={20} class:list={['mt-0.5 shrink-0', 'text-ciano']} aria-hidden="true" />
-                <span>{it}</span>
-              </li>
+              <li class="border-b rule-light py-3">{it}</li>
             ))}
           </ul>
 

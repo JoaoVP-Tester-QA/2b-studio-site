@@ -4,24 +4,23 @@ import dupla from '../assets/dupla-recorte.png';
 import { site } from '../data/site';
 
 const facts = [
-  { strong: 'No ar em até 7 dias', text: 'do briefing à publicação.' },
-  { strong: 'Design e copy juntos', text: 'pensados ao mesmo tempo, não um depois do outro.' },
-  { strong: 'Atenção total', text: 'em cada projeto, com poucos clientes por mês.' },
+  'A página fica pronta em até 7 dias, do briefing à publicação.',
+  'Design e texto são pensados ao mesmo tempo, não um depois do outro.',
+  'Pegamos poucos projetos por vez, para dar atenção a cada um.',
 ];
 ---
 
 <section id="sobre" aria-labelledby="sobre-title" class="on-dark bg-noite-2 pt-20 md:pt-32">
   <div class="wrap grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
     <div class="pb-0 md:col-span-6 md:pb-32">
-      <p class="label text-apoio-escuro">Sobre nós</p>
-      <h2 id="sobre-title" class="mt-4 text-h2">Dois irmãos, um estúdio pequeno de propósito.</h2>
+      <h2 id="sobre-title" class="text-h2">Dois irmãos, um estúdio pequeno de propósito.</h2>
       <p class="mt-6 max-w-[34rem] text-[1.1875rem] leading-relaxed">
         O 2B é o João e o Miguel, irmãos e sócios, de {site.city}. Um cuida do design, o outro da copy, e os dois assinam juntos
         cada página que sai daqui.
       </p>
-      <ul class="mt-10 grid gap-4 border-t rule-light pt-8">
+      <ul class="mt-10 border-t rule-light">
         {facts.map((f) => (
-          <li class="text-apoio-escuro"><strong class="font-medium text-nevoa">{f.strong}</strong> {f.text}</li>
+          <li class="border-b rule-light py-4 text-nevoa/85">{f}</li>
         ))}
       </ul>
     </div>
