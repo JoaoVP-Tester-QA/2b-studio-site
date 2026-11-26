@@ -169,7 +169,7 @@ export const packages: Package[] = [
     items: [
       'Tudo do Completo',
       'Área com login só para você',
-      'Troca de fotos e textos sem depender da gente',
+      'Mais configurações e independência',
       'Funções sob medida',
     ],
     cta: 'Pedir orçamento',
